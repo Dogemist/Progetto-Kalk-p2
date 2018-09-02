@@ -60,6 +60,8 @@ private:
     QString heroS3;
     QString heroS4;
 
+    Hero tmp;
+
     Mode addOedit;
 };
 

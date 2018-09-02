@@ -95,7 +95,7 @@ void summonedWindow::on_editButton_clicked()
     euw->usedBA = passedBA;
     euw->usedBA.detach();
     euw->insertBA();
-    euw->setName(nameA);
+    euw->setName(su);
     euw->show();
 
     if(euw->exec() == QDialog::Accepted){

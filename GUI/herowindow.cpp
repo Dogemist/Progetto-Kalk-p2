@@ -66,7 +66,7 @@ void heroWindow::on_addButton_clicked() //diverse aggiunte rispetto ai precendet
     if(ah->exec() == QDialog::Accepted){
         Hero tmp = ah->getHero();
         //QString nameTmp = ah->getHeroName();;
-        if(!storedHeroes.contains(nameTmp)){
+        if(!storedHeroes.contains(tmp.getName())){
         /*unsigned int StrTmp = ah->getHeroStr();
         unsigned int AglTmp = ah->getHeroAgl();
         unsigned int IntTmp = ah->getHeroInt();
@@ -110,14 +110,14 @@ void heroWindow::on_addButton_clicked() //diverse aggiunte rispetto ai precendet
         VectTemp.push_back(s2Stored);
         VectTemp.push_back(s3Stored);
         VectTemp.push_back(s4Stored);
-        Hspell.insert(nameTmp,VectTemp);
+        Hspell.insert(tmp.getName(),VectTemp);
 
-        storedHeroes.insert(tmp.getName,tmp);
-        ui->HList->addItem(tmp.getName);
-        ui->displayRes->setText(tr("Hero \"%1\" added! ").arg(tmp.getName));
+        storedHeroes.insert(tmp.getName(),tmp);
+        ui->HList->addItem(tmp.getName());
+        ui->displayRes->setText(tr("Hero \"%1\" added! ").arg(tmp.getName()));
     }
     else
-        QMessageBox::information(this, tr("Error"),tr("%1 is in the list").arg(tmp.getName));
+        QMessageBox::information(this, tr("Error"),tr("%1 is in the list").arg(tmp.getName()));
     }
     return;
 }
@@ -136,7 +136,7 @@ void heroWindow::on_editButton_clicked()
     eh->showedS.detach();
     eh->getMapBA();                     //gli carico le mappe
     eh->getMapS();
-    eh->setName(name);
+    eh->setName(h);
     eh->show();                         //mostro la finestra
 
     if(eh->exec() == QDialog::Accepted){
@@ -166,10 +166,10 @@ void heroWindow::on_editButton_clicked()
             return;
         }
 
-        tmp.InsertSKill(S1ind); //inserisci le skill
-        tmp.InsertSKill(S2ind);
-        tmp.InsertSKill(S3ind);
-        tmp.InsertSKill(S4ind);
+        edit.InsertSKill(S1ind); //inserisci le skill
+        edit.InsertSKill(S2ind);
+        edit.InsertSKill(S3ind);
+        edit.InsertSKill(S4ind);
 
         QVector<Skill> temp;                //creo vettore di supporto temporaneo
         temp.push_back(s1Stored);       //gli inserisco le skill modificate

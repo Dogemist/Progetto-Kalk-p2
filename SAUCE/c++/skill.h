@@ -31,6 +31,7 @@ public:
    unsigned int getCooldown()const;
    unsigned int getManaCost() const ;
    QString getName() const;
+   unsigned int getLevel() const;
    void setReady(bool b);
    double getMaxAnim(Skill*) const;
 

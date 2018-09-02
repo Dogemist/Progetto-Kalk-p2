@@ -101,3 +101,8 @@ double Skill::getMaxAnim(Skill* s) const{
     else
         return s->animation;
 }
+
+
+unsigned int Skill::getLevel() const{
+    return level;
+}
