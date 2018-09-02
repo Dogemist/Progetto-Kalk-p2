@@ -186,7 +186,7 @@ void heroWindow::on_editButton_clicked()
 
 void heroWindow::on_selectHero1_clicked()   //assegni alle LineEdit le stringhe dell'hero h
 {
-    if(firstCheck('c')){
+    if(firstCheck('f')){
     selected1 = h;
     ui->heroLine1->setText(h.getName());    //nota che per accederci devi fare sempre ui->
     ui->HPLine1->setText(QString::number(h.GetHP()));
@@ -230,7 +230,7 @@ void heroWindow::on_clearButton_clicked()
 
 
 void heroWindow::on_selectHero2_clicked() {
-    if(firstCheck('c')){
+    if(firstCheck('s')){
         selected2 = h;
         ui->heroLine2->setText(h.getName());
         ui->HPLine2->setText(QString::number(h.GetHP()));

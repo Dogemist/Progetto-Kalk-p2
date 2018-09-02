@@ -58,7 +58,7 @@ void summonedWindow::on_addButton_clicked()
 }
 
 void summonedWindow::on_select1Button_clicked()
-{   if(firstCheck('c'))
+{   if(firstCheck('f'))
     {
         selected1 = su;
         ui->nameLine1->setText(su.getSUMname());
@@ -72,7 +72,7 @@ void summonedWindow::on_select1Button_clicked()
 
 void summonedWindow::on_select2Button_clicked()
 {
-    if(firstCheck('c'))
+    if(firstCheck('s'))
     {
         selected2 = su;
         ui->nameLine2->setText(su.getSUMname());
