@@ -124,5 +124,62 @@ public class Hero extends BaseAttack{
         return total;
     }
     char Fight(Hero h){
+        int mp1,mp2,hp1,hp2,m1,m2;
+        double dmg1,dmg2;
+        boolean check=true;
+        Skill s;
+        mp1=GetMP();
+        mp2=h.GetMP();
+        m1=mp1;
+        m2=mp2;
+        hp1=GetHP();
+        hp2=h.GetHP();
+        LinkedList<Damage> x;
+        LinkedList<Damage> y;
+        for(double i=0.2;m1+m2>0&&check;i+=0.2){
+            x=MaxDamageByTime(i,mp1);
+            y=h.MaxDamageByTime(i,mp2);
+            dmg1=0;
+            dmg2=0;
+            for(i=0;i<x.size();i++){
+                if(x[i] instanceof Skill){
+                    dmg1=dmg1+(x[i].getValue()*(1-h.getMagicResistance()/100));
+                    m1=m1-x[i].getManaCost();
+                }
+                else{
+                    dmg1=dmg1+(x[i].getValue()*(1-(0.05*(h.GetArmor())/(1+(0.05*(h.GetArmor()))))));
+                }
+            }
+            for(i=0;i<y.size();i++){
+                if(x[i] instanceof Skill){
+                    dmg2=dmg2+(y[i]getValue()*(1-magicResistance/100));
+                    m2=m2-s.getManaCost();
+                    }
+                else{
+                    dmg2=dmg2+(y[i].getValue()*(1-(0.05*GetArmor()/(1+(0.05*GetArmor())))));
+                }
+            }
+            if(hp2<=dmg1){
+                check=false;
+                if(hp1<=dmg2)
+                    return 't';
+                    //std::cout<<"Fight is tied"<<std::endl;
+
+                else
+                    return 'w';
+                    //std::cout<<"Memes "/*Hero::getName()*/<<" won"<<" in "<<i<<" seconds"<<std::endl;
+            }
+            else{
+                if(hp1<=dmg2){
+                    check=false;
+                    return 'l';
+                    //std::cout<<"Mememino "/*Hero::getName()*/<<" won"<<" in "<<i<<" seconds"<<std::endl;
+                }
+            }
         }
+        return 0;
+    }
+    Skill Hero::getSkill(unsigned int i) const{
+        return skills;
+    }
 }
