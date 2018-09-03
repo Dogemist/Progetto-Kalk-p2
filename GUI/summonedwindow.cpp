@@ -110,7 +110,7 @@ void summonedWindow::on_editButton_clicked()
 void summonedWindow::on_fightButton_clicked()
 {
     if(firstCheck('s') && firstCheck('f')){
-        char result = selected1.Fight(selected2);
+        char result = selected1.Fight(&selected2);
         if(result == 't')
             ui->displayRes->setText(tr("Fight is tied"));
         else if(result == 'w')

@@ -16,7 +16,7 @@ public:
  ~SummonedUnit() = default;
  double DPS()const;
  double DamageByTime(double time)const;
- char Fight(SummonedUnit s)const;
+ char Fight(SummonedUnit* s)const;
  unsigned int getHp() const;
  QString getSUMname() const;
  unsigned int getLevel() const;
