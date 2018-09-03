@@ -1,6 +1,6 @@
 #include "skillwindow.h"
 
-skillWindow::skillWindow(QWidget *parent) : QWidget(parent)
+skillWindow::skillWindow(QWidget *parent): QWidget(parent)
 {
 
     setFixedSize(900,400);
@@ -255,7 +255,7 @@ void skillWindow::dptClicked(){
     }
 }
 void skillWindow::sumClicked(){
-
+   if(firstCheck()){
     if(!waitForOperand){     //WaitForOperand: selezionato un baseAttack => diventa true e aspetta un altro operando
         SdisplayRes->clear();
         sup = s;
@@ -270,11 +270,11 @@ void skillWindow::sumClicked(){
         res = 0;
         waitForOperand = false;
     }
-
+}
 }
 
 void skillWindow::diffClicked(){
-
+   if(firstCheck()){
     if(!waitForOperand){
         SdisplayRes->clear();
         sup = s;
@@ -288,12 +288,12 @@ void skillWindow::diffClicked(){
         SdisplayRes->setText(disp);
         res = 0;
         waitForOperand = false;
-
+    }
     }
 }
 
 bool skillWindow::firstCheck(){
-    if(s.value<0){
+    if(s.getValue()<0){
         QMessageBox::information(this,tr("Error"),tr("Select or create a skill"));
         return false;
     }

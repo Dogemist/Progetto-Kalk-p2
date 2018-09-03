@@ -1,8 +1,7 @@
 #include "basewindow.h"
 
-baseWindow::baseWindow(QWidget *parent) : QWidget(parent)
+baseWindow::baseWindow(QWidget *parent): QWidget(parent)
 {
-
     setFixedSize(900,400);
 
     BdisplayRes = new QLineEdit;                      //assegnazione    [BARRA IN ALTO]

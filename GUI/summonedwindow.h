@@ -55,6 +55,8 @@ private slots:
     void on_clearButton_clicked();
 
 private:
+
+
     Ui::summonedWindow *ui;
     SummonedUnit su;
     SummonedUnit def;

@@ -2,10 +2,12 @@
 #include "ui_herowindow.h"
 
 
+
 heroWindow::heroWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::heroWindow)
 {
+
     ui->setupUi(this);
     def = Hero(-1,"Default");
     h = def;

@@ -50,6 +50,7 @@ public slots:
 private slots:
     void onItemClicked(QListWidgetItem *item);
 private:
+
     QPushButton* SchangeKalkButton;
     QLineEdit* SdisplayRes;
     QPushButton* SsumButton;

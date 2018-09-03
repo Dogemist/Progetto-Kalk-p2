@@ -1,13 +1,14 @@
 #ifndef DAMAGE_H
 #define DAMAGE_H
-
+#include<QString>
 enum Mode{add,edit};
 
 class Damage
 {
-    public:
-//protected:
+protected:
     double value;
+    public:
+
    Damage(double d): value(d){}
    virtual ~Damage() =0;
    double getValue() const;

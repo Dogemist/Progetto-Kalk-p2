@@ -22,10 +22,11 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     setLayout(mainLayout);
     setWindowTitle("Change Kalk");
 
-    bw = new baseWindow;
-    sw = new skillWindow;
-    hw = new heroWindow;
-    suw = new summonedWindow;
+
+    bw = new baseWindow();
+    sw = new skillWindow();
+    hw = new heroWindow();
+    suw = new summonedWindow();
 
     //Inseriamo qua gli eventuali Hero/Item/SKill/BaseAttack già preimpostati
     //IDEA: Facciamo in modo che Empty comporti errore e che selezionino un oggetto diverso,

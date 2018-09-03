@@ -6,6 +6,7 @@
 class SummonedUnit : public BaseAttack
 {
 private:
+
  QString SUMname;
  unsigned int HP;
  unsigned int level;
