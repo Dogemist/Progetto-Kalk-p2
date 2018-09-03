@@ -28,9 +28,8 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     hw = new heroWindow();
     suw = new summonedWindow();
 
-    //Inseriamo qua gli eventuali Hero/Item/SKill/BaseAttack già preimpostati
-    //IDEA: Facciamo in modo che Empty comporti errore e che selezionino un oggetto diverso,
-    //quindi è un BA/Item/Skill che non produce niente
+    //Inseriamo qua gli eventuali SKill/BaseAttack/Hero/Summoned Unit già preimpostati
+
     savedB.insert(tr("First"),BaseAttack(10,1,1,1));
     savedB.insert(tr("Second"),BaseAttack(20,1,2,1));
 
