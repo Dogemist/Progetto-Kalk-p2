@@ -5,8 +5,6 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include "herowindow.h"
-#include "basewindow.h"
-#include "skillwindow.h"
 
 namespace Ui {
 class addWindowH;

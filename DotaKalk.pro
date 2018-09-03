@@ -65,8 +65,6 @@ HEADERS += \
 
 FORMS += \
     GUI/addwindowh.ui \
-    GUI/editwindowh.ui \
-    GUI/editwindowsum.ui \
     GUI/herowindow.ui \
     GUI/summonedwindow.ui
 

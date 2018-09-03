@@ -1,6 +1,4 @@
 #include "skillwindow.h"
-#include <iostream>
-
 
 skillWindow::skillWindow(QWidget *parent) : QWidget(parent)
 {

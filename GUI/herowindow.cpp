@@ -1,7 +1,6 @@
 #include "herowindow.h"
 #include "ui_herowindow.h"
 
-#include <iostream>
 
 heroWindow::heroWindow(QWidget *parent) :
     QMainWindow(parent),

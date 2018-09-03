@@ -1,6 +1,5 @@
 #include "summonedwindow.h"
 #include "ui_summonedwindow.h"
-#include <iostream>
 
 summonedWindow::summonedWindow(QWidget *parent) :
     QMainWindow(parent),

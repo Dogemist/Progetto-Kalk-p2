@@ -8,6 +8,7 @@
 #include <QString>
 #include <QPushButton>
 #include <QIntValidator>
+
 class timeWindow : public QDialog
 {
     Q_OBJECT

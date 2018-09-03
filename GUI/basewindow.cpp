@@ -1,10 +1,9 @@
 #include "basewindow.h"
-#include <iostream>
 
-baseWindow::baseWindow(QWidget *parent) : QWidget(parent) //CONTROLLARE PERCHÈ NON METTE I VALORI DECIMALI
+baseWindow::baseWindow(QWidget *parent) : QWidget(parent)
 {
 
-    setFixedSize(900,400);              //Mette la kalk in una dimensione fissa non ridimensionabile
+    setFixedSize(900,400);
 
     BdisplayRes = new QLineEdit;                      //assegnazione    [BARRA IN ALTO]
     BdisplayRes->setReadOnly(true);                  //si può solo leggere e non scrivere
@@ -25,8 +24,8 @@ baseWindow::baseWindow(QWidget *parent) : QWidget(parent) //CONTROLLARE PERCHÈ 
     displayBA->setFont(fontBA);
 
 
-    BsumButton = new QPushButton(tr("&Sum"));  //assegnazione del button con testo base, & permette di fare alt+"Prima_Lettera"
-    BsumButton->setMinimumSize(70,50);                  //Size minima (non fissa)
+    BsumButton = new QPushButton(tr("Sum"));  //assegnazione del button con testo base
+    BsumButton->setMinimumSize(70,50);         //Size minima (non fissa)
 
     BdiffButton = new QPushButton(tr("Difference"));
     BdiffButton->setMinimumSize(70,50);
@@ -77,21 +76,21 @@ baseWindow::baseWindow(QWidget *parent) : QWidget(parent) //CONTROLLARE PERCHÈ 
     connect(BsumButton, SIGNAL(clicked()), this, SLOT(sumClicked()));
     connect(BdiffButton,SIGNAL(clicked()), this, SLOT(diffClicked()));
     connect(BeditButton, SIGNAL(clicked()), this, SLOT(editClicked()));
-    //connect della lista widget alla finestra, dove se clicco su un oggetto della lista, lo setta come attivo
-    //itemClicked(QListWidgetItem*) libreria QT, onItemClicked(QListWidgetItem*) definita in basso
     connect (Blist, SIGNAL(itemClicked(QListWidgetItem*)), this, SLOT(onItemClicked(QListWidgetItem*)));
+    /*connect della lista widget alla finestra. Se clicco su un oggetto della lista, lo setta come attivo
+    itemClicked(QListWidgetItem*) libreria QT, onItemClicked(QListWidgetItem*) definita sul c++*/
 
     QHBoxLayout* op1Layout = new QHBoxLayout;   //assegnazione Layout Orizzontale (H = Horizzontal)
     op1Layout->addWidget(BsumButton);           //inserisci l'oggetto nel layout
     op1Layout->addWidget(BdiffButton);
     op1Layout->addWidget(BdpsButton);
 
-    QHBoxLayout* op2Layout = new QHBoxLayout;   //same
+    QHBoxLayout* op2Layout = new QHBoxLayout;
     op2Layout->addWidget(BdptButton);
     op2Layout->addWidget(BhitptButton);
 
 
-    QHBoxLayout* optLayout = new QHBoxLayout;   //same
+    QHBoxLayout* optLayout = new QHBoxLayout;
     optLayout->addWidget(BaddButton);
     optLayout->addWidget(BdeleteButton);
     optLayout->addWidget(BeditButton);
@@ -109,27 +108,25 @@ baseWindow::baseWindow(QWidget *parent) : QWidget(parent) //CONTROLLARE PERCHÈ 
     mainLayout->addWidget(Blist);
 
     setLayout(mainLayout);                  //O lo metti o non si vede
-    setWindowTitle("BaseAttack Kalk");            //titolo della finestra in alto nella barra nera
+    setWindowTitle("BaseAttack Kalk");      //titolo della finestra in alto nella barra nera
 
 }
 
 
 void baseWindow::onItemClicked(QListWidgetItem *item)   //Connect della BList, quando clicco su un oggetto:
 {
-    //Sul display dei messaggi viene scritto "Selected BaseAttack: X"
-    //arg ritorna una copia della stringa con il minor numero messo sotto il marker %, siccome ne abbiamo solo uno
-    //sostituisce a %1 il testo presente nell'item passato dalla BList
+/*Sul display dei messaggi viene scritto "Selected BaseAttack: X"
+arg ritorna una copia della stringa con il minor numero messo sotto il marker %, siccome ne abbiamo solo uno
+sostituisce a %1 il testo presente nell'item passato dalla BList*/
     displayBA->setText(tr("Selected BaseAttack: %1").arg(item->text()));
-
-    //cerca e assegna a ba il BaseAttack contenuto nella mappa sotto la key corrispondente al testo dell'item selezionato
-    ba = storedBA[item->text()];
+    ba = storedBA[item->text()]; //cerca e assegna a ba il BaseAttack contenuto nella mappa sotto la key corrispondente al testo dell'item selezionato
     name= item->text();
 }
 
 void baseWindow::changeKalkClicked(){
-    changeWindow* cw = new changeWindow;    //Nuova finestra per il cambio di kalk
-    cw->SaveMap(storedBA,salvS,salvH,salvSum,salvHS,salvSB);            //Pass le QMap StoredBA, SalvH e SalvS a changeKalk
-    storedBA.clear();                       //svuoto le mappe presenti per evitare eventuali doppioni
+    changeWindow* cw = new changeWindow; //Nuova finestra per il cambio di kalk
+    cw->SaveMap(storedBA,salvS,salvH,salvSum,salvHS,salvSB); //Pass le QMap StoredBA, SalvH e SalvS a changeKalk
+    storedBA.clear();                   //svuoto le mappe presenti per evitare eventuali doppioni
     salvS.clear();
     salvH.clear();
     salvSum.clear();
@@ -150,10 +147,10 @@ void baseWindow::addClicked(){
             QString animTmp = aw->getAnim();
             QString rangeTmp = aw->getRange();
             QString projTmp = aw->getProj();
-                                                //creo un BaseAttack temporaneo con i dati appena ricevuti
+            //creo un BaseAttack temporaneo con i dati appena ricevuti
             BaseAttack tmp(dannoTmp.toDouble(),animTmp.toDouble(),rangeTmp.toDouble(),projTmp.toDouble());
-            storedBA.insert(nameTmp,tmp);       //lo inserisco nella mappa sotto Key "Nome del BaseAttack" e Value il baseAttack tmp
-            Blist->addItem(nameTmp);            //aggiungo il nome del BaseAttack alla list widget. NB Valore inserito == QMap Key
+            storedBA.insert(nameTmp,tmp); //lo inserisco nella mappa sotto Key "Nome del BaseAttack" e Value il baseAttack tmp
+            Blist->addItem(nameTmp);      //aggiungo il nome del BaseAttack alla list widget.
             displayBA->setText(tr("Base attack \"%1\" added! ").arg(nameTmp));   //messaggio di successo
         }
         else //Nome già presente nella QMap, ritona un valore diverso da storedBA.end
@@ -170,9 +167,8 @@ void baseWindow::deleteClicked(){
         QString deleted = dw->getDelText();
         if((storedBA.contains(deleted))){
             storedBA.remove(deleted);
-            //ovviamente non c'è collegamento tra oggetto QMap e QListWidget => bisogna rimuovere anche quello
-            //creo una QList di QListWidgetItem che conterrà un solo elemento: deleted [MatchExactly]
-            QList<QListWidgetItem*>item_list= Blist->findItems(deleted,Qt::MatchExactly);
+            //ovviamente non c'è collegamento tra oggetto QMap e QListWidget => bisogna rimuoverlo manualmente
+            QList<QListWidgetItem*>item_list= Blist->findItems(deleted,Qt::MatchExactly);  //creo una QList di QListWidgetItem che conterrà un solo elemento: deleted [MatchExactly]
             QList<QListWidgetItem*>::iterator it= item_list.begin();
             int r = Blist->row(*it);    //per eliminare un elemento dalla QListWidget devi sapere la row
             Blist->takeItem(r);         //elimini l'elemento
@@ -229,7 +225,6 @@ void baseWindow::clearClicked(){
 void baseWindow::dpsClicked(){  //connect del pulsante dps,
     if(firstCheck()){
     double res = ba.DPS();      //richiami il metodo DPS del BaseAttack selezionato
-                                 //QString::number(int/double) permette di inserire in una QString un numero variabile
     QString disp= "Total DPS " + QString::number(res); //inserisco il risultato in una stringa "personalizzata"
     BdisplayRes->setText(disp); //lo mostro come risultato
     return;
@@ -243,7 +238,7 @@ void baseWindow::hptClicked(){
     timeWindow* tw = new timeWindow;
     if(tw->exec() == QDialog::Accepted){
         double time = tw->getTime().toDouble();
-        double res = ba.HitByTime(time);
+        double res = ba.HitByTime(time);    //ottenuto dalla timeWindow
         QString disp = tr("Hit done in %1 seconds ").arg(time)+ " " + QString::number(res);
         BdisplayRes->setText(disp);
        }
@@ -256,7 +251,7 @@ void baseWindow::dptClicked(){
     timeWindow* tw = new timeWindow;
     if(tw->exec() == QDialog::Accepted){
        double time = tw->getTime().toDouble();
-       double res = ba.DamageByTime(time);
+       double res = ba.DamageByTime(time); //ottenuto dalla timeWindow
        QString disp = tr("Damage done in %1 seconds ").arg(time)+ " " + QString::number(res);
        BdisplayRes->setText(disp);
        }
@@ -282,11 +277,11 @@ if (firstCheck()){
         BdisplayRes->setText(disp);//mostro il risultato
         res = 0;                     //importo res a 0
         waitForOperand = false;
-    }                               //NB Non permette la concatenazione di + e -
+    }
   }
 }
 
-void baseWindow::diffClicked(){  //STESSO DI sumCLicked() solo che fa la -
+void baseWindow::diffClicked(){
   if (firstCheck()){
     if(!waitForOperand){
         BdisplayRes->clear();

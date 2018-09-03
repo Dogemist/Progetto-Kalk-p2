@@ -38,13 +38,13 @@ addWindowSum::addWindowSum(QWidget *parent) :
     mainLayout->addWidget(confirmButton);
     mainLayout->addWidget(clearButton);
     setLayout(mainLayout);
-    setWindowTitle(tr("Insert a new Unit value"));
 
 }
 
 
 addWindowSum::~addWindowSum()
 {
+
 }
 
 

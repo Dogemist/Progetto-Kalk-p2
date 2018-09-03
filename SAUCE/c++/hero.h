@@ -3,8 +3,8 @@
 #include <QString>
 #include "skill.h"
 #include "baseattack.h"
-#include <string>
 #include <vector>
+
 class Hero : public BaseAttack
 {
 private:

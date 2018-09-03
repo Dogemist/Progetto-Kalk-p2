@@ -13,8 +13,8 @@ addWindow::addWindow(QDialog *parent) : QDialog(parent)
 
     nameLine = new QLineEdit;
     dannoLine = new QLineEdit;
-    dannoLine->setValidator(new QIntValidator(0,999,this)); //fa in modo che si inserisca un valore tra 0 e 999
-    dannoLine->setText(tr("1"));                            //inserisce già un valore 1
+    dannoLine->setValidator(new QIntValidator(0,999,this));
+    dannoLine->setText(tr("1"));
     animationLine = new QLineEdit;
     animationLine->setValidator(new QDoubleValidator(0,999,2,this));
     animationLine->setText(tr("1"));
@@ -45,7 +45,6 @@ addWindow::addWindow(QDialog *parent) : QDialog(parent)
     mainLayout->addWidget(confirmButton);
     mainLayout->addWidget(cancelButton);
     setLayout(mainLayout);
-    setWindowTitle(tr("Insert a new Baseattack value"));
 
 }
 

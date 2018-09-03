@@ -1,5 +1,4 @@
 #include "hero.h"
-#include "iostream"
 #include "vector"
 
 Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsigned int in, unsigned int hp, unsigned int mp, unsigned int arm, unsigned int mr, unsigned int lv):
@@ -39,7 +38,6 @@ double Hero::getLongestReadySkill(unsigned int distance){//ritorna l'animazione 
 
 Hero Hero::InsertSKill(Skill* sk ){
     if(skills.size()==4){
-        std::cout<<"Hai già inserito 4 skill"<<std::endl;
     return *this;
     }
     else{

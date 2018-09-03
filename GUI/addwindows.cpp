@@ -64,7 +64,6 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     mainLayout->addWidget(confirmButtonS);
     mainLayout->addWidget(clearButtonS);
     setLayout(mainLayout);
-    setWindowTitle(tr("Insert a new Skill value"));
 
 }
 

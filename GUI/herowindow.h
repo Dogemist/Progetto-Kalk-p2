@@ -7,8 +7,6 @@
 #include "summonedwindow.h"
 #include "changewindow.h"
 #include "addwindowh.h"
-#include "basewindow.h"
-#include "skillwindow.h"
 #include "timewindow.h"
 #include "deletewindow.h"
 
