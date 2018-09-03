@@ -28,7 +28,7 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     hw = new heroWindow();
     suw = new summonedWindow();
 
-    //Inseriamo qua gli eventuali SKill/BaseAttack/Hero/Summoned Unit già preimpostati
+    //Inseriamo qua gli eventuali SKill/BaseAttack/Hero/SummonedUnit già preimpostati
 
     savedB.insert(tr("First"),BaseAttack(10,1,1,1));
     savedB.insert(tr("Second"),BaseAttack(20,1,2,1));
