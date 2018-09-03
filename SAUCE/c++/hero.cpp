@@ -12,6 +12,7 @@ unsigned int Hero::getbMp()const {return bMp;}
 unsigned int Hero::getbArm() const {return bArmor;}
 unsigned int Hero::getMagicResistance()const {return magicResistance;}
 unsigned int Hero::getLevel()const {return level;}
+
 unsigned int Hero::GetArmor() const {
     return static_cast<unsigned int>(bArmor+agl*0.16);
 }
