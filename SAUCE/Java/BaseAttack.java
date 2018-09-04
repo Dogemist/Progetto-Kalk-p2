@@ -1,7 +1,7 @@
 public class BaseAttack extends Damage {
     private double animation;
     private int range;
-    private int projectileSpeed;
+    private double projectileSpeed;
     public BaseAttack(double v,double a,int r,int ps){
         super(v);
         animation=a;
