@@ -47,12 +47,6 @@ bool Skill::Heal(){
         return false;
 }
 
-double Skill::getAnimation() const {return animation;}
-bool Skill::getReady() const {return ready;}
-unsigned int Skill::getCooldown() const {return cooldown;}
-unsigned int Skill::getManaCost() const {return manaCost;}
-QString Skill::getName() const {return Sname;}
-void Skill::setReady(bool b) {ready=b;}
 
 double Skill::operator+(Damage* d) const{
     return this->getValue()+d->getValue();
@@ -106,3 +100,13 @@ double Skill::getMaxAnim(Skill* s) const{
 unsigned int Skill::getLevel() const{
     return level;
 }
+
+
+QString Skill::getName() const {return Sname;}
+double Skill::getAnimation() const {return animation;}
+double Skill::getPP() const {return projectileSpeed;}
+unsigned int Skill::getCooldown() const {return cooldown;}
+unsigned int Skill::getManaCost() const {return manaCost;}
+unsigned int Skill::getRange() const {return range;}
+bool Skill::getReady() const {return ready;}
+void Skill::setReady(bool b) {ready=b;}

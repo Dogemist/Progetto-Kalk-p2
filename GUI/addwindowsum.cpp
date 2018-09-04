@@ -97,7 +97,7 @@ void addWindowSum::updateMode(Mode up){
     }
 }
 
-void addWindowSum::setName(SummonedUnit su) const{
+void addWindowSum::setValues(SummonedUnit su) const{
     QString tmp;
     nameLine->setText(su.getSUMname());
     hpLine->setText(tmp.number(su.getHp()));

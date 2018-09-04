@@ -33,7 +33,7 @@ public:
     QString getHeroS4()const;
 
     void updateMode(Mode);
-    void setName(Hero) const;
+    void setValues(Hero) const;
 
 private slots:
 

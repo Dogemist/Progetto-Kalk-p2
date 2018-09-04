@@ -118,8 +118,15 @@ void addWindowS::updateMode(Mode up){
     }
 }
 
-void addWindowS::setName(QString name)const{
-    nameLineS->setText(name);
+void addWindowS::setValues(Skill sk)const{
+    nameLineS->setText(sk.getName());
+    dannoLineS->setText(QString::number(sk.getValue()));
+    manaLine->setText(QString::number(sk.getManaCost()));
+    animationLineS->setText(QString::number(sk.getAnimation()));
+    cooldownLine->setText(QString::number(sk.getCooldown()));
+    rangeLineS->setText(QString::number(sk.getRange()));
+    projLineS->setText(QString::number(sk.getPP()));
+    levelLine->setText(QString::number(sk.getLevel()));
 }
 
 QString addWindowS::getName() const{return nameText;}

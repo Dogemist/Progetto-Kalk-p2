@@ -90,7 +90,7 @@ void addWindowH::updateMode(Mode up){
     }
 }
 
-void addWindowH::setName(Hero h) const{
+void addWindowH::setValues(Hero h) const{
     ui->nameLine->setText(h.getName());
     ui->strBox->setValue(h.getStr());
     ui->intBox->setValue(h.getInt());

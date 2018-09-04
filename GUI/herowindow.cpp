@@ -66,19 +66,9 @@ void heroWindow::on_addButton_clicked() //diverse aggiunte rispetto ai precendet
 
     if(ah->exec() == QDialog::Accepted){
         Hero tmp = ah->getHero();
-        //QString nameTmp = ah->getHeroName();;
         if(!storedHeroes.contains(tmp.getName())){
-        /*unsigned int StrTmp = ah->getHeroStr();
-        unsigned int AglTmp = ah->getHeroAgl();
-        unsigned int IntTmp = ah->getHeroInt();
-        unsigned int bHPTmp = ah->getHeroBaseHP();
-        unsigned int bMPTmp = ah->getHeroBaseMP();
-        unsigned int lvTmp = ah->getHeroLevel();
-        double phyResTmp = ah->getHeroPhyRes();
-        double MagResTmp = ah->getHeroMagRes();
-        QString BATmp = ah->getHeroBA();
-*/
-        QString S1string = ah->getHeroS1();     //creo solita stringa per prendere il nome della skill
+
+        QString S1string = ah->getHeroS1();     //creo una stringa per prendere il nome della skill
         s1Stored = salvS.value(S1string);   //assegno alla s1Stored la skill corrispondente sulla QMap tramite la key
         Skill* S1ind= &s1Stored;    //siccome il vector accetta solo puntatori, gli ho dovuto passare un puntatore all'indirizzo
 
@@ -137,7 +127,7 @@ void heroWindow::on_editButton_clicked()
     eh->showedS.detach();
     eh->getMapBA();                     //gli carico le mappe
     eh->getMapS();
-    eh->setName(h);
+    eh->setValues(h);
     eh->show();                         //mostro la finestra
 
     if(eh->exec() == QDialog::Accepted){

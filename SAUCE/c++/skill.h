@@ -26,14 +26,16 @@ public:
    unsigned int HitByTime(double time,unsigned int distance=0);
    double totalTime(unsigned int distance=0)const;
 
-   double getAnimation() const;
-   bool getReady() const;
-   unsigned int getCooldown()const;
-   unsigned int getManaCost() const ;
    QString getName() const;
+   double getAnimation() const;
+   unsigned int getCooldown()const;
+   unsigned int getRange() const;
+   unsigned int getManaCost() const ;
    unsigned int getLevel() const;
-   void setReady(bool b);
+   double getPP() const;
    double getMaxAnim(Skill*) const;
+   bool getReady() const;
+   void setReady(bool b);
 
    void editedValues(double nv,unsigned int nm,unsigned int na,unsigned int nc,unsigned int nr,double np,unsigned int nl);
 

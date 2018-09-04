@@ -30,7 +30,7 @@ public:
 
 
      void updateMode(Mode);
-     void setName(QString) const;
+     void setValues(Skill) const;
 
 signals:
 

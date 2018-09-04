@@ -91,8 +91,12 @@ void addWindow::updateMode(Mode up){
     }
 }
 
-void addWindow::setName(QString setted) const{
+void addWindow::setValues(QString setted,BaseAttack ba) const{
     nameLine->setText(setted);
+    dannoLine->setText(QString::number(ba.getValue()));
+    animationLine->setText(QString::number(ba.getAnim()));
+    rangeLine->setText(QString::number(ba.getRange()));
+    projLine->setText(QString::number(ba.getPP()));
 }
 
 QString addWindow::getName() const {return nameText;}   //funzioni get per la classe chiamante

@@ -195,7 +195,7 @@ void baseWindow::editClicked(){
         return;
     }
    addWindow* ew = new addWindow;
-   ew->setName(name);
+   ew->setValues(name,ba);
    ew->updateMode(edit);
    ew->show();
 

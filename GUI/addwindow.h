@@ -23,7 +23,7 @@ public:
     QString getAnim() const;
     QString getRange() const;
     QString getProj() const;
-    void setName(QString) const;
+    void setValues(QString, BaseAttack) const;
 
     void updateMode(Mode);
 

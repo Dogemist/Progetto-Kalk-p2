@@ -193,7 +193,7 @@ void skillWindow::editClicked(){
 
    addWindowS* ew = new addWindowS;
    ew->updateMode(edit);
-   ew->setName(name);
+   ew->setValues(s);
    ew->show();
 
    if(ew->exec() == QDialog::Accepted){

@@ -24,7 +24,7 @@ public:
     QMap<QString, BaseAttack> usedBA;
 
     void updateMode(Mode);
-    void setName(SummonedUnit) const;
+    void setValues(SummonedUnit) const;
 
 private slots:
     void onAddClicked();
