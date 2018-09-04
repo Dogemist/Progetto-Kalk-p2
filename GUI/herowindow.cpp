@@ -388,3 +388,42 @@ void heroWindow::on_deleteButton_clicked()
     delete dw;
     return;
 }
+
+
+void heroWindow::on_powButton1_clicked()
+{
+    if(firstCheck('f')){
+        timeWindow* tw = new timeWindow;
+        if(tw->exec() == QDialog::Accepted){
+           unsigned int time = tw->getTime().toInt();
+           /* QVector<>ritorno = selected1.nomeMetodo(time) richiamo metodo con time
+            * QVectorIterator<>it (ritorno)
+            * if(dynamic_cast<*it>(BaseAttack*)){
+            *   QString res = "L'attacco con maggior danno è un BaseAttack con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
+            *   ui->displayRes->setText(res)
+            * else if(dynamic_cast<*it>(Skill*)){
+            *   QString res = "L'attacco con maggior danno è una Skill con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
+            *   ui->displayRes->setText(res);*/
+        }
+    }
+
+}
+
+void heroWindow::on_powBut2_clicked()
+{
+    if(firstCheck('f')){
+        timeWindow* tw = new timeWindow;
+        if(tw->exec() == QDialog::Accepted){
+           unsigned int time = tw->getTime().toInt();
+           /* QVector<>ritorno = selected1.nomeMetodo(time) richiamo metodo con time
+            * QVectorIterator<>it (ritorno)
+            * if(dynamic_cast<*it>(BaseAttack*)){
+            *   QString res = "L'attacco con maggior danno è un BaseAttack con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
+            *   ui->displayRes->setText(res)
+            * else if(dynamic_cast<*it>(Skill*)){
+            *   QString res = "L'attacco con maggior danno è una Skill con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
+            *   ui->displayRes->setText(res);*/
+        }
+    }
+
+}
