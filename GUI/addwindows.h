@@ -58,6 +58,8 @@ private:
     int levelText;
 
     QDoubleValidator* validAn;
+    QDoubleValidator* validPP;
+
     Mode addOedit;
 };
 

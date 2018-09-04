@@ -15,6 +15,9 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     validAn = new QDoubleValidator(1,9999,2);
     validAn->setNotation(QDoubleValidator::StandardNotation);
 
+    validPP = new QDoubleValidator(1,9999,2,0);
+    valid->setNotation(QDoubleValidator::StandardNotation);
+
     nameLineS = new QLineEdit;
     dannoLineS = new QLineEdit;
     dannoLineS->setValidator(new QIntValidator(1,9999,this));
@@ -32,7 +35,7 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     rangeLineS->setValidator(new QIntValidator(1,999,this));
     rangeLineS->setText(tr("1"));
     projLineS = new QLineEdit;
-    projLineS->setValidator(validAn);
+    projLineS->setValidator(validPP);
     projLineS->setText(tr("1"));
     levelLine = new QLineEdit;
     levelLine->setValidator(new QIntValidator(0,4,this));

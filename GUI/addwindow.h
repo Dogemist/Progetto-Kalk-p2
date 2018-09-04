@@ -47,6 +47,7 @@ private:
     QString projText;
 
     QDoubleValidator* valid;
+    QDoubleValidator* validPP;
 
     Mode addOedit;
 };

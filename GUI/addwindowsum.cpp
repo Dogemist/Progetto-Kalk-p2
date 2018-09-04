@@ -10,11 +10,11 @@ addWindowSum::addWindowSum(QWidget *parent) :
 
     nameLine = new QLineEdit;
     hpLine = new QLineEdit;
-    hpLine->setValidator(new QIntValidator(0,9999,this));
+    hpLine->setValidator(new QIntValidator(0,99999,this));
     hpLine->setText(tr("1"));
     levelLine = new QLineEdit;
-    levelLine->setValidator(new QIntValidator(0,4,this));
-    levelLine->setText(tr("0"));
+    levelLine->setValidator(new QIntValidator(0,25,this));
+    levelLine->setText(tr("1"));
     baseAttackBox = new QComboBox;
 
 

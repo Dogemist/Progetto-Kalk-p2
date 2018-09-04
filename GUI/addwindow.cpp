@@ -11,6 +11,9 @@ addWindow::addWindow(QDialog *parent) : QDialog(parent)
     valid = new QDoubleValidator(1,10,2,animationLine);
     valid->setNotation(QDoubleValidator::StandardNotation);
 
+    validPP = new QDoubleValidator(1,9999,2,0);
+    valid->setNotation(QDoubleValidator::StandardNotation);
+
     nameLine = new QLineEdit;
     dannoLine = new QLineEdit;
     dannoLine->setValidator(new QIntValidator(0,999,this));
@@ -19,10 +22,10 @@ addWindow::addWindow(QDialog *parent) : QDialog(parent)
     animationLine->setValidator(new QDoubleValidator(0,999,2,this));
     animationLine->setText(tr("1"));
     rangeLine = new QLineEdit;
-    rangeLine->setValidator(new QIntValidator(0,999,this));
+    rangeLine->setValidator(new QIntValidator(0,9999,this));
     rangeLine->setText(tr("1"));
     projLine = new QLineEdit;
-    projLine->setValidator(new QIntValidator(0,999,this));
+    projLine->setValidator(validPP);
     projLine->setText(tr("1"));
 
     confirmButton = new QPushButton();
