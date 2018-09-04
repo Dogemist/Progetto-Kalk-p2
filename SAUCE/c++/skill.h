@@ -39,7 +39,7 @@ public:
 
    void editedValues(double nv,unsigned int nm,unsigned int na,unsigned int nc,unsigned int nr,double np,unsigned int nl);
 
-   Damage* sum(Damage*) const;
+   Damage* sum(Damage*);
    double operator+(Damage* d) const;
    double operator-(Damage* d) const;
    bool operator==(Damage* d) const;

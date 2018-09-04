@@ -12,7 +12,12 @@ protected:
    Damage(double d): value(d){}
    virtual ~Damage() =0;
    double getValue() const;
-   virtual Damage* sum(Damage*) const =0;
+
+   virtual Damage* sum(Damage*) =0;
+   virtual double DPS(unsigned int distance=0)=0;
+   virtual double DamageByTime(double time,unsigned int distance=0)=0;
+   virtual unsigned int HitByTime(double time,unsigned int distance=0)=0;
+
 
    virtual double operator+(Damage*) const =0;
    virtual double operator-(Damage*) const =0;

@@ -18,15 +18,15 @@ unsigned int SummonedUnit::getLevel()const{
     return level;
 }
 
-double SummonedUnit::DPS() const {
+double SummonedUnit::DPS() {
     return BaseAttack::DPS()*level*multiplier;
 }
 
-double SummonedUnit::DamageByTime(double time) const{
+double SummonedUnit::DamageByTime(double time) {
     return BaseAttack::DamageByTime(time)*level*multiplier;
 }
 
-char SummonedUnit::Fight(SummonedUnit* s)const{
+char SummonedUnit::Fight(SummonedUnit* s){
     unsigned int hp1,hp2;
     hp1=getHp();
     hp2=s->getHp();

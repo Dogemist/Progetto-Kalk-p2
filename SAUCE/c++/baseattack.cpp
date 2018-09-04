@@ -36,15 +36,15 @@ bool BaseAttack::IsCastable(double time, unsigned int distance) const{
 
 }
 
-unsigned int BaseAttack::HitByTime(double time,unsigned int distance) const{
+unsigned int BaseAttack::HitByTime(double time,unsigned int distance){
     return time/((distance/projectileSpeed)+anim);
 }
 
-double BaseAttack::DPS(unsigned int distance) const{
+double BaseAttack::DPS(unsigned int distance) {
     return HitByTime(1,distance)*value;
 }
 
-double BaseAttack::DamageByTime(double time,unsigned int distance) const{
+double BaseAttack::DamageByTime(double time,unsigned int distance) {
    return HitByTime(time,distance)*value;
 }
 
@@ -74,7 +74,7 @@ double BaseAttack::getMaxAnim(BaseAttack* a) const {
         return a->anim;
 }
 
-Damage* BaseAttack::sum(Damage* d) const{
+Damage* BaseAttack::sum(Damage* d){
     BaseAttack* sum = new BaseAttack();
     BaseAttack* dp = dynamic_cast<BaseAttack*>(d);
     sum->anim = this->getMaxAnim(dp);

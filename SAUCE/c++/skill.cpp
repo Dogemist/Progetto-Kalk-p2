@@ -77,7 +77,7 @@ void Skill::editedValues(double nv,unsigned int nm,unsigned int na,unsigned int 
     this->level = nl;
 }
 
-Damage* Skill::sum(Damage * s) const{
+Damage* Skill::sum(Damage * s){
     Skill* sum = new Skill;
     sum->value = *this + s ;
     sum->animation= this->animation + dynamic_cast<Skill*>(s)->animation;
