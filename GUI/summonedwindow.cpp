@@ -56,7 +56,7 @@ void summonedWindow::on_addButton_clicked()
 }
 
 void summonedWindow::on_select1Button_clicked()
-{   if(firstCheck('f'))
+{   if(firstCheck('c'))
     {
         selected1 = su;
         ui->nameLine1->setText(su.getSUMname());
@@ -70,7 +70,7 @@ void summonedWindow::on_select1Button_clicked()
 
 void summonedWindow::on_select2Button_clicked()
 {
-    if(firstCheck('s'))
+    if(firstCheck('c'))
     {
         selected2 = su;
         ui->nameLine2->setText(su.getSUMname());
@@ -113,9 +113,9 @@ void summonedWindow::on_fightButton_clicked()
         if(result == 't')
             ui->displayRes->setText(tr("Fight is tied"));
         else if(result == 'w')
-            ui->displayRes->setText(tr("%1 Won the fight").arg(selected1.getSUMname()));
+            ui->displayRes->setText(tr("%1 win the fight").arg(selected1.getSUMname()));
         else
-            ui->displayRes->setText(tr("%1 Won the fight").arg(selected2.getSUMname()));
+            ui->displayRes->setText(tr("%1 win the fight").arg(selected2.getSUMname()));
   }
 }
 
@@ -251,7 +251,7 @@ bool summonedWindow::firstCheck(char controll){
             QMessageBox::information(this,tr("Error"),tr("Select or create an unit"));
             return false;
         }
-    else if(controll == 'c' && ui->displayRes->text() == "Select or create an unit"){
+    else if(controll == 'c' && su == def){
         QMessageBox::information(this,tr("Error"),tr("You haven't select any unit"));
         return false;
         }

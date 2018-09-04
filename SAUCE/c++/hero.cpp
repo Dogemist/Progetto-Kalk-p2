@@ -37,15 +37,6 @@ double Hero::getLongestReadySkill(unsigned int distance){//ritorna l'animazione 
     return max;
 }
 
-Hero Hero::InsertSKill(Skill* sk ){
-    if(skills.size()==4){
-    return *this;
-    }
-    else{
-        skills.push_back(sk);
-        return *this;
-    }
-}
 
 
 std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//restituisce un vector con le skill usate per massimaizzare il danno in quel lasso di tempo, tenendo conto anche del mana
@@ -191,6 +182,16 @@ char Hero::Fight(Hero* h){
         }
     }
     return 0;
+}
+
+Hero Hero::InsertSKill(Skill* sk ){
+    if(skills.size()==4){
+    return *this;
+    }
+    else{
+        skills.push_back(sk);
+        return *this;
+    }
 }
 
 Skill Hero::getSkill(unsigned int i) const{

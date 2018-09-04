@@ -177,7 +177,7 @@ void heroWindow::on_editButton_clicked()
 
 void heroWindow::on_selectHero1_clicked()   //assegni alle LineEdit le stringhe dell'hero h
 {
-    if(firstCheck('f')){
+    if(firstCheck('c')){
     selected1 = h;
     ui->heroLine1->setText(h.getName());    //nota che per accederci devi fare sempre ui->
     ui->HPLine1->setText(QString::number(h.GetHP()));
@@ -221,7 +221,7 @@ void heroWindow::on_clearButton_clicked()
 
 
 void heroWindow::on_selectHero2_clicked() {
-    if(firstCheck('s')){
+    if(firstCheck('c')){
         selected2 = h;
         ui->heroLine2->setText(h.getName());
         ui->HPLine2->setText(QString::number(h.GetHP()));
@@ -333,14 +333,14 @@ void heroWindow::on_fightButton_clicked()
         if(result == 't')
             ui->displayRes->setText(tr("Fight is tied"));
         else if(result == 'w')
-            ui->displayRes->setText(tr("%1 won the fight").arg(selected1.getName()));
+            ui->displayRes->setText(tr("%1 win the fight").arg(selected1.getName()));
         else
-            ui->displayRes->setText(tr("%1 won the fight").arg(selected2.getName()));
+            ui->displayRes->setText(tr("%1   win the fight").arg(selected2.getName()));
     }
 }
 
 bool heroWindow::firstCheck(char control){
-   if(control == 'c' && ui->displayRes->text() == "SELECT OR CREATE AN HERO"){ //c per check
+   if(control == 'c' && h == def){ //c per check
        QMessageBox::information(this,tr("Error"),tr("Select or create an hero"));
         return false;
     }

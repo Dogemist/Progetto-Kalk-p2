@@ -12,8 +12,8 @@ private:
  unsigned int level;
  double multiplier;
 public:
- SummonedUnit(double v=1, double an=1, unsigned int ra=1, unsigned int ps=1, QString n="Empty_Summon", unsigned int h=1, unsigned int l=1, unsigned int m=0);
- SummonedUnit(BaseAttack b,QString n="Empty_Summon", unsigned int h=1, unsigned int l=1, unsigned int m=0);
+ SummonedUnit(double v=1, double an=1, unsigned int ra=1, unsigned int ps=1, QString n="Empty_Summon", unsigned int h=1, unsigned int l=1, double m=1.2);
+ SummonedUnit(BaseAttack b,QString n="Empty_Summon", unsigned int h=1, unsigned int l=1, double m=1.2);
  ~SummonedUnit() = default;
  double DPS();
  double DamageByTime(double time);

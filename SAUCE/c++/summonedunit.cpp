@@ -1,9 +1,9 @@
 #include "summonedunit.h"
 #include "iostream"
 
-SummonedUnit::SummonedUnit(double b,double an,unsigned int ra,unsigned int ps, QString n, unsigned int h, unsigned int l, unsigned int m):BaseAttack(b,an,ra,ps), SUMname(n), HP(h), level(l), multiplier(m){}
+SummonedUnit::SummonedUnit(double b,double an,unsigned int ra,unsigned int ps, QString n, unsigned int h, unsigned int l, double m):BaseAttack(b,an,ra,ps), SUMname(n), HP(h), level(l), multiplier(m){}
 
-SummonedUnit::SummonedUnit(BaseAttack b, QString n,unsigned int h, unsigned int l, unsigned int m)
+SummonedUnit::SummonedUnit(BaseAttack b, QString n, unsigned int h, unsigned int l, double m)
     :BaseAttack(b),SUMname(n), HP(h), level(l), multiplier(m){}
 
 unsigned int SummonedUnit::getHp() const{
