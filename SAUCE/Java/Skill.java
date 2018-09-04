@@ -19,14 +19,14 @@ public class Skill extends Damage {
         animation=an;
      }
 
-    public boolean IsCastable(double time.int distance){
+    public boolean IsCastable(double time,int distance){
         if(time<animation+(distance/projectileSpeed) || distance>range || (level<=0 || level>4))
             return false;
         else
             return true;
         }
 
-    public boolean IsCastable(double time.int distance,int mana){
+    public boolean IsCastable(double time,int distance,int mana){
         if(time<animation+(distance/projectileSpeed) || distance>range || (level<=0 || level>4)||mana<manaCost)
             return false;
         else
@@ -83,10 +83,10 @@ public class Skill extends Damage {
         }
 
     public double sum(Skill s){
-        return super.getValue()+s.getValue();
+        return getValue()+s.getValue();
         }
 
     public double dif(Skill s){
-        return super.getValue()-s.getValue();
+        return getValue()-s.getValue();
         }
 }
