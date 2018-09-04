@@ -235,7 +235,7 @@ void skillWindow::hptClicked(){
     if(tw->exec() == QDialog::Accepted){
        double time = tw->getTime().toDouble();
        double res = s.HitByTime(time);
-       QString disp = tr("Hit done in %1 seconds ").arg(time)+ " " + QString::number(res);
+       QString disp = tr("Hit done in %1 seconds").arg(time)+ " " + QString::number(res);
        SdisplayRes->setText(disp);
    }
 }
@@ -248,7 +248,7 @@ void skillWindow::dptClicked(){
    if(tw->exec() == QDialog::Accepted){
        double time = tw->getTime().toDouble();
        double res = s.DamageByTime(time);
-       QString disp = tr("Damage done in %1 seconds ").arg(time)+ " " + QString::number(res);
+       QString disp = tr("Damage done in %1 seconds").arg(time)+ " " + QString::number(res);
        SdisplayRes->setText(disp);
     }
         return;
