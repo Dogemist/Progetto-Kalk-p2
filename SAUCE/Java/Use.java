@@ -31,8 +31,16 @@ public class Use {
         resb=b[0].DamageByTime(time,distance);
         System.out.print("L'attacco b[0] fa "+resb+" danni in "+time+" secondi\n");
 
+        resb=b[0].getAnim();
+        System.out.print("L'attacco b[0] ha "+resb+" di animazione\n");
 
+        res=b[0].getRange();
+        System.out.print("L'attacco b[0] ha "+res+" di range\n");
 
+        if(b[0].equals(b[1])
+            System.out.print("I due attacchi sono uguali\n");
+        else
+            System.out.print("I due attacchi sono diversi\n");
 
 
 }
