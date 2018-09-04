@@ -9,7 +9,7 @@ baseWindow::baseWindow(QWidget *parent): QWidget(parent)
     BdisplayRes->setAlignment(Qt::AlignRight);        //allineamento a destra
     BdisplayRes->setMaxLength(70);                    //numero massimo di caratteri che può contenere
 
-    displayBA = new QLineEdit(tr("Select a BaseAttack from the list")); //assegnazione con testo base [BARRA BASSA]
+    displayBA = new QLineEdit(tr("Select or create a BaseAttack from the list")); //assegnazione con testo base [BARRA BASSA]
     displayBA->setReadOnly(true);
     displayBA->setAlignment(Qt::AlignCenter);
     displayBA->setMinimumSize(600,50);
@@ -173,7 +173,7 @@ void baseWindow::deleteClicked(){
             Blist->takeItem(r);         //elimini l'elemento
 
             if(displayBA->text() == tr("Selected BaseAttack: %1").arg(deleted)){    //se il testo nella riga delle info è quella
-                displayBA->setText(tr("Select a BaseAttack from the list"));
+                displayBA->setText(tr("Select or create a BaseAttack from the list"));
                 ba = def;
             }
 
@@ -214,7 +214,7 @@ void baseWindow::editClicked(){
 
 void baseWindow::clearClicked(){
     //setta il display delle info con il valore di default e cancella il contenuto di quello del risultato
-    displayBA->setText(tr("Select a BaseAttack from the list"));
+    displayBA->setText(tr("Select or create BaseAttack from the list"));
     BdisplayRes->clear();
     Blist->clearSelection();
     ba = def;
