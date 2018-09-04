@@ -28,12 +28,13 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     hw = new heroWindow();
     suw = new summonedWindow();
 
-    //Inseriamo qua gli eventuali SKill/BaseAttack/Hero/Summoned Unit già preimpostati
+    savedB.insert(tr("Sword"),BaseAttack(22,1.4,5,4));
+    savedB.insert(tr("Axe"),BaseAttack(26,1.7,5,4));
+    savedB.insert(tr("Dagger"),BaseAttack(17,1,3,3));
+    savedB.insert(tr("Double Dagger"),BaseAttack(25,1.6,5,4));
+    savedB.insert(tr("Two-Handend Sword"), BaseAttack(40,2,10,6));
+    savedB.insert(tr("Claws"),BaseAttack(20,1.2,4,3));
 
-    savedB.insert(tr("First"),BaseAttack(10,1,1,1));
-    savedB.insert(tr("Second"),BaseAttack(20,1,2,1));
-
-  //savedS.insert(trSkill(danno,nome,mana,animation,cooldown,range,projspeed,livello,ready)
     savedS.insert(tr("Blade Fury"),Skill(100,"Blade Fury",120,5,42,1,0.2,1,true));
     savedS.insert(tr("Omnislash"),Skill(500,"Second",200,2,130,1.5,1,2,true));
     savedS.insert(tr("Arc Lightning"),Skill(75,"Arc Lightning",65,0.9,1.6,85,70,1,true));
