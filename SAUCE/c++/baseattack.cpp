@@ -10,6 +10,7 @@ double BaseAttack::operator+(Damage* d) const{
    return c->value;
 
 }
+
 double BaseAttack::operator-(Damage* d) const{
     return this->getValue()-d->getValue();
 

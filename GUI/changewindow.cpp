@@ -28,18 +28,33 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     hw = new heroWindow();
     suw = new summonedWindow();
 
-    //Inseriamo qua gli eventuali SKill/BaseAttack/Hero/SummonedUnit già preimpostati
+    savedB.insert(tr("Sword"),BaseAttack(22,1.4,5,4));
+    savedB.insert(tr("Axe"),BaseAttack(26,1.7,5,4));
+    savedB.insert(tr("Dagger"),BaseAttack(17,1,3,3));
+    savedB.insert(tr("Double Dagger"),BaseAttack(25,1.6,5,4));
+    savedB.insert(tr("Two-Handend Sword"), BaseAttack(40,2,10,6));
+    savedB.insert(tr("Claws"),BaseAttack(20,1.2,4,3));
 
-    savedB.insert(tr("First"),BaseAttack(10,1,1,1));
-    savedB.insert(tr("Second"),BaseAttack(20,1,2,1));
+    savedS.insert(tr("Blade Fury"),Skill(100,"Blade Fury",120,5,42,1,0.2,1,true));
+    savedS.insert(tr("Omnislash"),Skill(500,"Second",200,2,130,1.5,1,2,true));
+    savedS.insert(tr("Arc Lightning"),Skill(75,"Arc Lightning",65,0.9,1.6,85,70,1,true));
+    savedS.insert(tr("Soul Assumption"),Skill(70,"Soul Assumption",170,1.75,4,90,0.4,1,true));
 
-    //savedS.insert(tr("EmptySKILL"),Skill());
-    savedS.insert(tr("First"),Skill(100,"First",1,1,1,1,1,2));
-    savedS.insert(tr("Second"),Skill(10,"Second",10,20,30,10,10,2,true));
-    savedS.insert(tr("Third"),Skill(10,"Third",10,20,30,10,10,2,true));
-    savedS.insert(tr("Fourth"),Skill(10,"Fourth",10,20,30,10,10,2,true));
-    savedS.insert(tr("Five"),Skill(50,"Five",10,20,30,10,10,2,true));
-    savedS.insert(tr("Six"),Skill(60,"Six",10,20,30,10,10,2,true));
+    savedS.insert(tr("Boundless Strike"),Skill(175,"Boundless Strike",100,0.9,22,1.2,1,2,true));
+    savedS.insert(tr("Searing Chains"),Skill(92,"Searing Chains",65,0.87,12,20,18,2,true));
+    savedS.insert(tr("Great Cleave"),Skill(145,"Great Cleave",120,0.3,13,1,0.5,2,true));
+    savedS.insert(tr("Avalanche"),Skill(180,"Avalanche",120,0.53,21,5,3,2,true));
+
+    savedS.insert(tr("Tree Throw"),Skill(240,"Tree Throw",150,0.53,20,150,125,3,true));
+    savedS.insert(tr("Shockwave"),Skill(230,"Shockwave",130,1.5,10,10,9,3,true));
+    savedS.insert(tr("Anchor Smash"),Skill(175,"Anchor Smash",60,0.7,7,70,64,3,true));
+    savedS.insert(tr("Spectral Dagger"),Skill(190,"Spectral Dagger",140,0.67,16,10,7,3,true));
+
+    savedS.insert(tr("Nightmare"),Skill(650,"Nightmare",165,0.95,22,77,66,4,true));
+    savedS.insert(tr("Wrath Of A God"),Skill(325,"Wrath Of A God",225,1,90,25,0.2,4,true));
+    savedS.insert(tr("Freezing Field"),Skill(310,"Freezing Field",350,0.3,100,15,3,4,true));
+    savedS.insert(tr("Black Hole"),Skill(750,"Black Hole",600,5,200,27,0.2,4,true));
+
 
 
 }
