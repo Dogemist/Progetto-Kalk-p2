@@ -1,4 +1,4 @@
-public class BaseAttack extends Damage {
+public class BaseAttack extends PDamage {
     private double animation;
     private int range;
     private double projectileSpeed;

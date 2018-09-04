@@ -53,6 +53,7 @@ public class Hero extends BaseAttack{
             }
         return max;
     }
+
     public LinkedList<Damage> MaxDamageByTime(double time,int mana){
         double max;
         double maxDmg;
@@ -115,6 +116,7 @@ public class Hero extends BaseAttack{
       }
     return v;
     }
+
     public double MaxDamageByTimeDMG(double time,int mana){
         LinkedList<Damage> v=MaxDamageByTime(time,mana);
         double total=0;
@@ -123,6 +125,7 @@ public class Hero extends BaseAttack{
         }
         return total;
     }
+
     char Fight(Hero h){
         int mp1,mp2,hp1,hp2,m1,m2;
         double dmg1,dmg2;
@@ -179,7 +182,7 @@ public class Hero extends BaseAttack{
         }
         return 0;
     }
-    Skill Hero::getSkill(unsigned int i) const{
+    Skill getSkill(unsigned int i) const{
         return skills;
     }
 }
