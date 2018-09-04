@@ -1,6 +1,4 @@
 import java.util.*;
-import Skill.java;
-import BaseAttack.java;
 public class Hero extends BaseAttack{
     private LinkedList<Skill> skills = new LinkedList<Skill>();
     private String Hname;
@@ -12,8 +10,8 @@ public class Hero extends BaseAttack{
     private int bArmor;
     private int magicResistance;
     private int level;
-    public Hero(double v,double an,int rg,int ps,String n,int st,int ag,int in,int hp,int mp,int arm,int mr,int lv){
-        super(v,an,rg,ps);
+    public Hero(BaseAttack b,String n,int st,int ag,int in,int hp,int mp,int arm,int mr,int lv){
+        super(b);
         Hname=n;
         str=st;
         agl=ag;
@@ -36,16 +34,16 @@ public class Hero extends BaseAttack{
     public int GetMP(){
         return bMp+inte*12;
         }
-    public string getName(){
+    public String getName(){
         return Hname;
         }
-    public getMagicResistance(){
+    public int getMagicResistance(){
         return magicResistance;
         }
     public Skill getSkill(int i){
         return skills(i);
         }
-    public getLongestReadySkill(int distance){
+    public double getLongestReadySkill(int distance){
         double max=0;
         for(int i=0;i<4;i++){
             if(skills[i].isCastable(distance)&&skills[i].getAnimation()>max)
@@ -63,7 +61,7 @@ public class Hero extends BaseAttack{
             index=0;
             for(int i=0;i<v.size();i++){
                 if(v[i] instanceof Skill){
-                    if(i-timing[index]>=v[i]getCooldown())
+                    if(i-timing[index]>=v[i].getCooldown())
                         v[i].setready(true);
                     else
                         v[i].setReady(false);
@@ -126,7 +124,7 @@ public class Hero extends BaseAttack{
         return total;
     }
 
-    char Fight(Hero h){
+    public char Fight(Hero h){
         int mp1,mp2,hp1,hp2,m1,m2;
         double dmg1,dmg2;
         boolean check=true;
@@ -155,7 +153,7 @@ public class Hero extends BaseAttack{
             }
             for(i=0;i<y.size();i++){
                 if(x[i] instanceof Skill){
-                    dmg2=dmg2+(y[i]getValue()*(1-magicResistance/100));
+                    dmg2=dmg2+(y[i].getValue()*(1-magicResistance/100));
                     m2=m2-s.getManaCost();
                     }
                 else{
@@ -182,7 +180,7 @@ public class Hero extends BaseAttack{
         }
         return 0;
     }
-    Skill getSkill(unsigned int i) const{
+    public LinkedList<Skill> getSkill(){
         return skills;
     }
 }

@@ -1,13 +1,13 @@
-public class Skill extends Damage {
+public class Skill extends MDamage {
     private boolean ready;
-    private string Sname;
+    private String Sname;
     private int manaCost;
     private int coolDown;
     private int range;
     private int level;
     private double projectileSpeed;
     private double animation;
-    public Skill(double v,string s,int m,double an,int cd,int r,double ps,int lv){
+    public Skill(double v,String s,int m,double an,int cd,int r,double ps,int lv){
         super(v);
         re=true;
         Sname=s;
@@ -43,7 +43,7 @@ public class Skill extends Damage {
 
     public int HitByTime(double time,int distance){
         double aux = time;
-        unsigned int tiri = 0;
+        int tiri = 0;
         while(IsCastable(aux,distance)){
             tiri++;
             aux=aux-(animation+cooldown+(distance/projectileSpeed));
@@ -70,11 +70,11 @@ public class Skill extends Damage {
         return manaCost;
         }
 
-    public string getName(){
+    public String getName(){
         return Sname;
         }
 
-    void setReady(bool b){
+    void setReady(boolean b){
         ready=b;
         }
 

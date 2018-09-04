@@ -3,7 +3,7 @@ public abstract class Damage {
     public Damage(double d){
         value=d;
         }
-    public getValue(){
+    public double getValue(){
         return value;
         }
     @Override
