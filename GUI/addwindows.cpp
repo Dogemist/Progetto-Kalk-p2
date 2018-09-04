@@ -16,14 +16,14 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     validAn->setNotation(QDoubleValidator::StandardNotation);
 
     validPP = new QDoubleValidator(1,9999,2,0);
-    valid->setNotation(QDoubleValidator::StandardNotation);
+    validPP->setNotation(QDoubleValidator::StandardNotation);
 
     nameLineS = new QLineEdit;
     dannoLineS = new QLineEdit;
     dannoLineS->setValidator(new QIntValidator(1,9999,this));
     dannoLineS->setText(tr("1"));
     manaLine = new QLineEdit;
-    manaLine->setValidator(new QIntValidator(1,999,this));
+    manaLine->setValidator(new QIntValidator(1,9999,this));
     manaLine->setText(tr("1"));
     animationLineS = new QLineEdit;
     animationLineS->setValidator(validAn);
@@ -32,7 +32,7 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     cooldownLine->setValidator(new QIntValidator(1,999,this));
     cooldownLine->setText(tr("1"));
     rangeLineS = new QLineEdit;
-    rangeLineS->setValidator(new QIntValidator(1,999,this));
+    rangeLineS->setValidator(new QIntValidator(1,9999,this));
     rangeLineS->setText(tr("1"));
     projLineS = new QLineEdit;
     projLineS->setValidator(validPP);
