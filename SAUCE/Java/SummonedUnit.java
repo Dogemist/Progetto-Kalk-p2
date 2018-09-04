@@ -10,25 +10,25 @@ public class SummonedUnit extends BaseAttack{
         level=l;
         multiplier=m;
         }
-    public double DPS{
-        super.DPS()*level*multiplier;
+    public double DPS(int distance){
+        return super.DPS(distance)*level*multiplier;
         }
-    public double DamageByTime(double time){
-        super.DamageByTime(time)*level*multiplier;
+    public double DamageByTime(double time,int distance){
+        return super.DamageByTime(time,distance)*level*multiplier;
         }
-    public char Fight(SummonedUnit s){
+    public char Fight(SummonedUnit s,int distance){
         int hp1,hp2;
         hp1=getHp();
         hp2=s.getHp();
         for(double i=0;hp1>0&&hp2>0;i+=0.2){
-            if(DamageByTime(i)>=hp2){
+            if(DamageByTime(i,0)>=hp2){
                 hp2=0;
-                if(s.DamageByTime(i)>=hp1){
+                if(s.DamageByTime(i,0)>=hp1){
                     hp1=0;
                     return 't';
                 }else
                     return 'w';
-            }else if(s.DamageByTime(i)>=hp1)
+            }else if(s.DamageByTime(i,0)>=hp1)
                     return 'l';
         }
         return '0';

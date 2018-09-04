@@ -9,7 +9,7 @@ public class Skill extends MDamage {
     private double animation;
     public Skill(double v,String s,int m,double an,int cd,int r,double ps,int lv){
         super(v);
-        re=true;
+        ready=true;
         Sname=s;
         manaCost=m;
         coolDown=cd;
@@ -18,6 +18,17 @@ public class Skill extends MDamage {
         projectileSpeed=ps;
         animation=an;
      }
+     public Skill(Skill s){
+        super(s.getValue());
+        ready=true;
+        Sname=s.Sname;
+        manaCost=s.manaCost;
+        coolDown=s.coolDown;
+        range=s.range;
+        level=s.level;
+        projectileSpeed=s.projectileSpeed;
+        animation=s.animation;
+    }
 
     public boolean IsCastable(double time,int distance){
         if(time<animation+(distance/projectileSpeed) || distance>range || (level<=0 || level>4))
@@ -38,7 +49,7 @@ public class Skill extends MDamage {
         }
 
     public double DamageByTime(double time,int distance){
-        return HitByTime(time,distance)*value;
+        return HitByTime(time,distance)*super.getValue();
         }
 
     public int HitByTime(double time,int distance){
@@ -46,7 +57,7 @@ public class Skill extends MDamage {
         int tiri = 0;
         while(IsCastable(aux,distance)){
             tiri++;
-            aux=aux-(animation+cooldown+(distance/projectileSpeed));
+            aux=aux-(animation+coolDown+(distance/projectileSpeed));
             }
         return tiri;
         }
@@ -74,19 +85,23 @@ public class Skill extends MDamage {
         return Sname;
         }
 
+    public int getRange(){
+        return range;
+        }
+
     void setReady(boolean b){
         ready=b;
         }
 
     public boolean equals(Object o){
-        return(o instanceof Skill)&&(getAnim()==((Skill)o).getAnim())&&(getRange()==((Skill)o).getRange())&&(super.getValue()==d.getValue())&&(getManaCost()==((Skill)o).getManaCost())&&(getManaCost()==((Skill)o).getManaCost());
+        return(o instanceof Skill)&&(getAnimation()==((Skill)o).getAnimation())&&(getRange()==((Skill)o).getRange())&&(super.getValue()==((Skill)o).getValue())&&(getManaCost()==((Skill)o).getManaCost())&&(getManaCost()==((Skill)o).getManaCost());
         }
 
-    public double sum(Skill s){
+    public double sum(Damage s){
         return getValue()+s.getValue();
         }
 
-    public double dif(Skill s){
+    public double dif(Damage s){
         return getValue()-s.getValue();
         }
 }

@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.Double;
 public class Hero extends BaseAttack{
     private LinkedList<Skill> skills = new LinkedList<Skill>();
     private String Hname;
@@ -26,13 +27,13 @@ public class Hero extends BaseAttack{
         skills.add(sk);
         }
     public int GetArmor(){
-        return bArmor+agl*0.16;
+        return (int)(bArmor+agl*0.16);
         }
     public int GetHP(){
-        return bHp+str*18;
+        return (int)(bHp+str*18);
         }
     public int GetMP(){
-        return bMp+inte*12;
+        return (int)(bMp+inte*12);
         }
     public String getName(){
         return Hname;
@@ -41,13 +42,13 @@ public class Hero extends BaseAttack{
         return magicResistance;
         }
     public Skill getSkill(int i){
-        return skills(i);
+        return skills.get(i);
         }
     public double getLongestReadySkill(int distance){
         double max=0;
         for(int i=0;i<4;i++){
-            if(skills[i].isCastable(distance)&&skills[i].getAnimation()>max)
-                max=skills[i].getAnimation();
+            if(skills.get(i).IsCastable(9999,distance)&&skills.get(i).getAnimation()>max)
+                max=skills.get(i).getAnimation();
             }
         return max;
     }
@@ -57,56 +58,69 @@ public class Hero extends BaseAttack{
         double maxDmg;
         int index;
         LinkedList<Damage> v=new LinkedList<Damage>();
+        LinkedList<Double> timing=new LinkedList<Double>();
         for(double i=0;i<time;i+=0.2){
             index=0;
-            for(int i=0;i<v.size();i++){
-                if(v[i] instanceof Skill){
-                    if(i-timing[index]>=v[i].getCooldown())
-                        v[i].setready(true);
+            for(int l=0;l<v.size();l++){
+                if(v.get(l) instanceof Skill){
+                    if(i-timing.get(index)>=((Skill)v.get(l)).getCooldown())
+                        ((Skill)v.get(l)).setReady(true);
                     else
-                        v[i].setReady(false);
+                        ((Skill)v.get(l)).setReady(false);
                 }
+            index++;
             }
         max=0;
         Damage d;
-        for(int i=0;i<4;i++){
-            if(skills[i].getAnimation()>max&&skills[i].isCastable(time-i,0))
-                max=skills[i].getAnimation();
+        for(int l=0;l<4;l++){
+            if(skills.get(l).getAnimation()>max&&skills.get(l).IsCastable(time-i,0))
+                max=skills.get(l).getAnimation();
         }
         maxDmg=0;
+        double oldmaxDmg=-1;
         double rem=time-i;
-        if(super.IsCastable(rem)){
+        if(super.IsCastable(rem,0)){
             if(super.getAnim()>max)
                 max=super.getAnim();
-                maxDmg=super.DamageByTime(max);
+                maxDmg=super.DamageByTime(max,0);
             }
         if(maxDmg>0){
-            d=new BaseAttack(super.getValue());
+            oldmaxDmg=maxDmg;
             }
-        for(int i=0;i<4;i++){
-            double checkDBT=skills[i].DamageByTime(max);
-            if(checkDBT>maxDmg&&skills[i].getReady()&&mana>skills[i].getManaCost()){
+        for(int l=0;l<4;l++){
+            double checkDBT=skills.get(l).DamageByTime(max,0);
+            if(checkDBT>maxDmg&&skills.get(l).getReady()&&mana>skills.get(l).getManaCost()){
                 maxDmg=checkDBT;
-                d=skills[i];
+                d=new Skill(skills.get(l));
             }
         }
-    if(!(d instanceof BaseAttack)){
+        if(oldmaxDmg==maxDmg){
+            if(maxDmg>0)
+                d=new BaseAttack((BaseAttack)this);
+            else
+                d=new BaseAttack(0,0,0,0);
+        }
+    if(d instanceof Skill){
         Skill s=(Skill)d ;
         if(s.getReady()){
-           if(s.totalTime()*s.HitByTime(max)<max)
-              max=s.totalTime()*s.HitByTime(max);
+           if(s.totalTime(0)*s.HitByTime(max,0)<max)
+              max=s.totalTime(0)*s.HitByTime(max,0);
               mana=mana-s.getManaCost();
               v.add(s);
+              timing.add(i);
             }
      }
     else{
+         if(d instanceof BaseAttack&&d.getValue()>0){
             BaseAttack b=(BaseAttack)d;
             if(b.getValue()>0)
-                if(super.getAnim()*super.HitByTime(max)<max)
-                    max=super.getAnim()*super.HitByTime(max);
-            for(int l=0;l<super.HitByTime(max);l++){
+                if(super.getAnim()*super.HitByTime(max,0)<max)
+                    max=super.getAnim()*super.HitByTime(max,0);
+            for(int l=0;l<super.HitByTime(max,0);l++){
                 v.add(b);
+                timing.add(i+l*super.getAnim());
             }
+          }
         }
     if(max>0)
         max=max-0.2;
@@ -119,7 +133,7 @@ public class Hero extends BaseAttack{
         LinkedList<Damage> v=MaxDamageByTime(time,mana);
         double total=0;
         for(int i=0;i<v.size();i++){
-            total=total+v[i].getValue();
+            total=total+v.get(i).getValue();
         }
         return total;
     }
@@ -142,22 +156,22 @@ public class Hero extends BaseAttack{
             y=h.MaxDamageByTime(i,mp2);
             dmg1=0;
             dmg2=0;
-            for(i=0;i<x.size();i++){
-                if(x[i] instanceof Skill){
-                    dmg1=dmg1+(x[i].getValue()*(1-h.getMagicResistance()/100));
-                    m1=m1-x[i].getManaCost();
+            for(int m=0;m<x.size();m++){
+                if(x.get(m) instanceof Skill){
+                    dmg1=dmg1+((Skill)x.get(m)).getValue()*(1-h.getMagicResistance()/100);
+                    m1=m1-((Skill)x.get(m)).getManaCost();
                 }
                 else{
-                    dmg1=dmg1+(x[i].getValue()*(1-(0.05*(h.GetArmor())/(1+(0.05*(h.GetArmor()))))));
+                    dmg1=dmg1+(x.get(m).getValue()*(1-(0.05*(h.GetArmor())/(1+(0.05*(h.GetArmor()))))));
                 }
             }
-            for(i=0;i<y.size();i++){
-                if(x[i] instanceof Skill){
-                    dmg2=dmg2+(y[i].getValue()*(1-magicResistance/100));
+            for(int m=0;m<y.size();m++){
+                if(x.get(m) instanceof Skill){
+                    dmg2=dmg2+(y.get(m).getValue()*(1-magicResistance/100));
                     m2=m2-s.getManaCost();
                     }
                 else{
-                    dmg2=dmg2+(y[i].getValue()*(1-(0.05*GetArmor()/(1+(0.05*GetArmor())))));
+                    dmg2=dmg2+(y.get(m).getValue()*(1-(0.05*GetArmor()/(1+(0.05*GetArmor())))));
                 }
             }
             if(hp2<=dmg1){
