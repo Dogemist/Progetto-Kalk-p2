@@ -87,7 +87,7 @@ void heroWindow::on_addButton_clicked() //diverse aggiunte rispetto ai precendet
         unsigned int FullLvSkill = s1Stored.getLevel()+s2Stored.getLevel()+s3Stored.getLevel()+s4Stored.getLevel();
 
         if(tmp.getLevel()<FullLvSkill){
-            QMessageBox::information(this,tr("Error"),tr("The of this Hero isn't enougth to contail all this skill (required lv %1)").arg(FullLvSkill));
+            QMessageBox::information(this,tr("Error"),tr("The level of this Hero isn't enougth to contail all this skill (required lv %1)").arg(FullLvSkill));
             return;
         }
 
@@ -153,7 +153,7 @@ void heroWindow::on_editButton_clicked()
         unsigned int FullLvSkill = s1Stored.getLevel()+s2Stored.getLevel()+s3Stored.getLevel()+s4Stored.getLevel();
 
         if(edit.getLevel()<FullLvSkill){
-            QMessageBox::information(this,tr("Error"),tr("The of this Hero isn't enougth to contail all this skill (required lv %1)").arg(FullLvSkill));
+            QMessageBox::information(this,tr("Error"),tr("The level of this Hero isn't enougth to contail all this skill (required lv %1)").arg(FullLvSkill));
             return;
         }
 
@@ -372,7 +372,7 @@ void heroWindow::on_deleteButton_clicked()
             QList<QListWidgetItem*>::iterator it= item_list.begin();
             int r = ui->HList->row(*it);    //per eliminare un elemento dalla QListWidget devi sapere la row
             ui->HList->takeItem(r);         //elimini l'elemento
-            ui->displayRes->setText(tr("SELECT OR CREATE AN HERO"));
+            ui->displayRes->setText(tr("Select or create an Hero"));
             h = def;
 
             on_clearButton_clicked();
@@ -442,11 +442,8 @@ void heroWindow::on_powBut2_clicked()
         QString res2;
         if(tw->exec() == QDialog::Accepted){
            unsigned int time = tw->getTime().toInt();
-           std::cout<<"GINO"<<std::endl;
            std::vector<Damage*>ritorno = selected2.MaxPower(time);
-           std::cout<<"GINO2"<<std::endl;
            std::vector<Damage*>::iterator it = ritorno.begin();
-           std::cout<<"GINO3"<<std::endl;
            if(dynamic_cast<BaseAttack*>(*it)){
                   res1 = "Il miglior DPS è un BaseAttack con " + QString::number(ritorno[0]->getValue()) + " danni e";}
            else
