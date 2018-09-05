@@ -8,9 +8,15 @@ public class BaseAttack extends PDamage {
         range=r;
         projectileSpeed=ps;
         }
+    public BaseAttack(BaseAttack b){
+        super(b.getValue());
+        animation=b.animation;
+        range=b.range;
+        projectileSpeed=b.projectileSpeed;
+    }
 
     public boolean IsCastable(double time,int distance){
-        if(time+0.001<(anim+(distance/projectileSpeed))||distance>range){
+        if(time+0.001<(animation+(distance/projectileSpeed))||distance>range){
             return false;
         }
         else
@@ -19,16 +25,16 @@ public class BaseAttack extends PDamage {
 
     public int HitByTime(double time,int distance){
         if(IsCastable(time,distance))
-            return time/((distance/projectileSpeed)+anim);
+            return ((int)(time/((distance/projectileSpeed)+animation)));
         return 0;
         }
 
     public double DPS(int distance){
-        return HitByTime(1,distance)*value;
+        return HitByTime(1,distance)*super.getValue();
         }
 
     public double DamageByTime(double time,int distance){
-        return HitByTime(time,distance)*value;
+        return HitByTime(time,distance)*super.getValue();
         }
 
     public double getAnim(){
@@ -40,14 +46,14 @@ public class BaseAttack extends PDamage {
         }
 
     public boolean equals(Object o){
-        return(o instanceof BaseAttack)&&(getAnim()==((BaseAttack)o).getAnim())&&(getRange()==((BaseAttack)o).getRange())&&(super.getValue()==d.getValue());
+        return(o instanceof BaseAttack)&&(getAnim()==((BaseAttack)o).getAnim())&&(getRange()==((BaseAttack)o).getRange())&&(super.getValue()==((BaseAttack)o).getValue());
         }
 
-    public double sum(BaseAttack b){
+    public double sum(Damage b){
         return super.getValue()+b.getValue();
         }
 
-    public double dif(BaseAttack b){
+    public double dif(Damage b){
         return super.getValue()-b.getValue();
         }
 }

@@ -58,6 +58,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
                 else
                     cd->setReady(false);
             }
+            index++;
         }
         max=0;//animazione massima inizializzata/resettata a 0
         Damage* d=new BaseAttack();
