@@ -204,22 +204,23 @@ std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
                 DPS=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
         }
         if((*it)->DamageByTime(time,distance)>maxDBT){
-            maxDBT=(*it)->DamageByTime(distance);
+            maxDBT=(*it)->DamageByTime(time,distance);
             if(dynamic_cast<Skill*>(*it))
                 DBT=new Skill(*(dynamic_cast<Skill*>(*it)));
             else
                 DBT=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
         }
     }
-    Skill* res;
-    res=new Skill((*(dynamic_cast<Skill*>(DPS))));
-    if(res)
-        result.push_back(new Skill(*(res)));
+    Skill* resDPS;
+    Skill* resDBT;
+    resDPS=new Skill((*(dynamic_cast<Skill*>(DPS))));
+    if(resDPS)
+        result.push_back(new Skill(*(resDPS)));
     else
         result.push_back(new BaseAttack(*(dynamic_cast<BaseAttack*>(DPS))));
-    res=new Skill((*(dynamic_cast<Skill*>(DBT))));
-    if(res)
-        result.push_back(new Skill(*(res)));
+    resDBT=new Skill((*(dynamic_cast<Skill*>(DBT))));
+    if(resDBT)
+        result.push_back(new Skill(*(resDBT)));
     else
         result.push_back(new BaseAttack(*(dynamic_cast<BaseAttack*>(DBT))));
     result[0]->setValue(maxDPS);
