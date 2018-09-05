@@ -12,6 +12,7 @@ protected:
    Damage(double d): value(d){}
    virtual ~Damage() =0;
    double getValue() const;
+   void setValue(double d);
 
    virtual Damage* sum(Damage*) =0;
    virtual double DPS(unsigned int distance=0)=0;

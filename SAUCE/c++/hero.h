@@ -45,9 +45,11 @@ public:
   Skill getSkill(unsigned int i)const;
   double getLongestReadySkill(unsigned int distance=0);
 
-  std::vector<Damage*> MaxDamageByTime(double,unsigned int);
-  double MaxDamageByTimeDMG(double,unsigned int);
+  std::vector<Damage*> MaxDamageByTime(double,unsigned int distance=0);
+  double MaxDamageByTimeDMG(double,unsigned int distance=0);
   char Fight(Hero*);
+  std::vector<Damage*> MaxPower(double,unsigned int distance=0);
+
 };
 
 #endif // HERO_H

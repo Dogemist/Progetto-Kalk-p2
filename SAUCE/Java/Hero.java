@@ -71,7 +71,7 @@ public class Hero extends BaseAttack{
             index++;
             }
         max=0;
-        Damage d;
+        Damage d=new BaseAttack(0,0,0,0);
         for(int l=0;l<4;l++){
             if(skills.get(l).getAnimation()>max&&skills.get(l).IsCastable(time-i,0))
                 max=skills.get(l).getAnimation();
@@ -91,22 +91,19 @@ public class Hero extends BaseAttack{
             double checkDBT=skills.get(l).DamageByTime(max,0);
             if(checkDBT>maxDmg&&skills.get(l).getReady()&&mana>skills.get(l).getManaCost()){
                 maxDmg=checkDBT;
-                d=new Skill(skills.get(l));
+                d=(skills.get(l));
             }
         }
         if(oldmaxDmg==maxDmg){
             if(maxDmg>0)
-                d=new BaseAttack((BaseAttack)this);
-            else
-                d=new BaseAttack(0,0,0,0);
+                d=((BaseAttack)this);
         }
     if(d instanceof Skill){
-        Skill s=(Skill)d ;
-        if(s.getReady()){
-           if(s.totalTime(0)*s.HitByTime(max,0)<max)
-              max=s.totalTime(0)*s.HitByTime(max,0);
-              mana=mana-s.getManaCost();
-              v.add(s);
+        if(((Skill)d).getReady()){
+           if(((Skill)d).totalTime(0)*((Skill)d).HitByTime(max,0)<max)
+              max=((Skill)d).totalTime(0)*((Skill)d).HitByTime(max,0);
+              mana=mana-((Skill)d).getManaCost();
+              v.add((Skill)d);
               timing.add(i);
             }
      }
@@ -166,9 +163,9 @@ public class Hero extends BaseAttack{
                 }
             }
             for(int m=0;m<y.size();m++){
-                if(x.get(m) instanceof Skill){
+                if(y.get(m) instanceof Skill){
                     dmg2=dmg2+(y.get(m).getValue()*(1-magicResistance/100));
-                    m2=m2-s.getManaCost();
+                    m2=m2-((Skill)y.get(m)).getManaCost();
                     }
                 else{
                     dmg2=dmg2+(y.get(m).getValue()*(1-(0.05*GetArmor()/(1+(0.05*GetArmor())))));

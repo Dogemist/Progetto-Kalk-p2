@@ -185,6 +185,47 @@ char Hero::Fight(Hero* h){
     return 0;
 }
 
+std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
+    std::vector<Damage*> t;
+    std::vector<Damage*> result;
+    Damage* DPS=new BaseAttack;
+    Damage* DBT=new BaseAttack;
+    t.insert(t.end(),skills.begin(),skills.end());
+    t.push_back(dynamic_cast<BaseAttack*>(this));
+    std::vector<Damage*>::iterator it=t.begin();
+    double maxDPS=-1;
+    double maxDBT=-1;
+    for(;it!=t.end();it++){
+        if((*it)->DPS(distance)>maxDPS){
+            maxDPS=(*it)->DPS(distance);
+            if(dynamic_cast<Skill*>(*it))
+                DPS=new Skill(*(dynamic_cast<Skill*>(*it)));
+            else
+                DPS=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
+        }
+        if((*it)->DamageByTime(time,distance)>maxDBT){
+            maxDBT=(*it)->DamageByTime(distance);
+            if(dynamic_cast<Skill*>(*it))
+                DBT=new Skill(*(dynamic_cast<Skill*>(*it)));
+            else
+                DBT=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
+        }
+    }
+    Skill* res;
+    res=new Skill((*(dynamic_cast<Skill*>(DPS))));
+    if(res)
+        result.push_back(new Skill(*(res)));
+    else
+        result.push_back(new BaseAttack(*(dynamic_cast<BaseAttack*>(DPS))));
+    res=new Skill((*(dynamic_cast<Skill*>(DBT))));
+    if(res)
+        result.push_back(new Skill(*(res)));
+    else
+        result.push_back(new BaseAttack(*(dynamic_cast<BaseAttack*>(DBT))));
+    result[0]->setValue(maxDPS);
+    result[1]->setValue(maxDBT);
+    return result;
+}
 Hero Hero::InsertSKill(Skill* sk ){
     if(skills.size()==4){
     return *this;

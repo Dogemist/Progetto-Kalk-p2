@@ -6,10 +6,14 @@ public class Use {
         b.add(new BaseAttack(10,1,1,1));
         b.add(new BaseAttack(20,1,2,1));
         s.add(new Skill(200.0,"Storm Hammer",175,0.3,13,600,1000.0,2));
-        s.add(new Skill(100.0,"First",1,1.0,1,1,1.0,2));
-        s.add(new Skill(10.0,"Second",10,20.0,30,10,10.0,2));
-        s.add(new Skill(10.0,"Third",10,20.0,30,10,10.0,2));
-        s.add(new Skill(10.0,"Fourth",10,20.0,30,10,10.0,2));
+        s.add(new Skill(75,"Arc Lightning",65,0.9,400,85,70,200));
+        s.add(new Skill(180,"Avalanche",120,0.53,21,5,3,2));
+        s.add(new Skill(230,"Shockwave",130,1.5,10,10,9,3));
+        s.add(new Skill(325,"Wrath Of A God",225,1,90,25,0.2,4));
+        s.add(new Skill(650,"Nightmare",165,0.95,22,77,66,4));
+        s.add(new Skill(100,"Blade Fury",120,5,42,1,0.2,1));
+        s.add(new Skill(750,"Black Hole",600,5,200,27,0.2,4));
+        s.add(new Skill(230,"Shockwave",130,1.5,10,10,9,3));
         Hero h2=new Hero(b.get(0),"Grimmstroke",18,20,22,150,100,0,0,12);
         Hero h1=new Hero(b.get(1),"Sven",25,18,20,200,75,2,0,12);
         SummonedUnit s1=new SummonedUnit(20,1,2,1,"Creep",200,1,1);
@@ -90,24 +94,31 @@ public class Use {
             System.out.print("Le skill "+s.get(0).getName()+" e "+s.get(0).getName()+" sono diverse\n");
 
         resb=s.get(0).sum(s.get(1));
-        System.out.println("Le skill "+s.get(0).getName()+" e "+s.get(0).getName()+" hanno somma: "+resb);
+        System.out.println("Le skill "+s.get(0).getName()+" e "+s.get(1).getName()+" hanno somma: "+resb);
 
         resb=s.get(0).dif(s.get(1));
-        System.out.println("Le skill "+s.get(0).getName()+" e "+s.get(0).getName()+" hanno differenza: "+resb);
+        System.out.println("Le skill "+s.get(0).getName()+" e "+s.get(1).getName()+" hanno differenza: "+resb);
 
         //OPERAZIONI HERO
         h1.InsertSkill(s.get(1));
+        h1.InsertSkill(s.get(2));
+        h1.InsertSkill(s.get(3));
+        h1.InsertSkill(s.get(0));
+        h2.InsertSkill(s.get(5));
+        h2.InsertSkill(s.get(6));
+        h2.InsertSkill(s.get(7));
+        h2.InsertSkill(s.get(8));
         LinkedList<Skill> sl=h1.getSkill();
         for(int i=0;i<sl.size();i++){
             System.out.print("L'eroe ha la skill "+sl.get(i).getName()+"\n");
             }
 
-        System.out.print("L'eroe "+h1.getName()+" ha "+h1.GetArmor()+"di armor, "+h1.GetHP()+" hp, "+h1.GetMP()+" MP e "+h1.getMagicResistance()+"% di magic resistance\n");
+        System.out.print("L'eroe "+h1.getName()+" ha "+h1.GetArmor()+" di armor, "+h1.GetHP()+" hp, "+h1.GetMP()+" MP e "+h1.getMagicResistance()+"% di magic resistance\n");
 
         resb=h1.getLongestReadySkill(distance);
         System.out.print("L'animazione della skill più lunga è: "+resb+"\n");
 
-        LinkedList<Damage> resl=h1.MaxDamageByTime(time,h1.GetMP());
+        LinkedList<Damage> resl=h2.MaxDamageByTime(time,h1.GetMP());
         Skill sf;
         for(int i=0;i<resl.size();i++){
             Damage df=resl.get(i);
