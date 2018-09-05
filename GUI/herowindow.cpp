@@ -1,7 +1,7 @@
 #include "herowindow.h"
 #include "ui_herowindow.h"
-
-
+#include <iostream>
+#include <vector>
 
 heroWindow::heroWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -394,8 +394,33 @@ void heroWindow::on_powButton1_clicked()
 {
     if(firstCheck('f')){
         timeWindow* tw = new timeWindow;
+        QString res1;
+        QString res2;
         if(tw->exec() == QDialog::Accepted){
            unsigned int time = tw->getTime().toInt();
+           std::vector<Damage*>ritorno = selected1.MaxPower(time);
+           std::vector<Damage*>::iterator it = ritorno.begin();
+           if(dynamic_cast<BaseAttack*>(*it)){
+
+               res1 = "Il miglior DPS è un BaseAttack con " + QString::number(ritorno[0]->getValue()) + " danni e";}
+           else
+               res1 = "Il miglior DPS è una Skill con " + QString::number(ritorno[0]->getValue()) + " danni e";
+
+           it++;
+           if(dynamic_cast<BaseAttack*>(*it))
+               res2 = " il miglior DPT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
+           else
+               res2 = " il miglior DPT è una Skill con " + QString::number(ritorno[1]->getValue());
+
+
+           QString fres = res1+res2;
+           ui->displayRes->setText(fres);
+           return;
+        }
+    }
+}
+
+
            /* QVector<>ritorno = selected1.nomeMetodo(time) richiamo metodo con time
             * QVectorIterator<>it (ritorno)
             * if(dynamic_cast<*it>(BaseAttack*)){
@@ -403,27 +428,38 @@ void heroWindow::on_powButton1_clicked()
             *   ui->displayRes->setText(res)
             * else if(dynamic_cast<*it>(Skill*)){
             *   QString res = "L'attacco con maggior danno è una Skill con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
-            *   ui->displayRes->setText(res);*/
+            *   ui->displayRes->setText(res);
         }
     }
 
-}
+}*/
 
 void heroWindow::on_powBut2_clicked()
 {
-    if(firstCheck('f')){
+    if(firstCheck('s')){
         timeWindow* tw = new timeWindow;
+        QString res1;
+        QString res2;
         if(tw->exec() == QDialog::Accepted){
            unsigned int time = tw->getTime().toInt();
-           /* QVector<>ritorno = selected1.nomeMetodo(time) richiamo metodo con time
-            * QVectorIterator<>it (ritorno)
-            * if(dynamic_cast<*it>(BaseAttack*)){
-            *   QString res = "L'attacco con maggior danno è un BaseAttack con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
-            *   ui->displayRes->setText(res)
-            * else if(dynamic_cast<*it>(Skill*)){
-            *   QString res = "L'attacco con maggior danno è una Skill con " + QString::number(*it->getValue()) + " danni in " + QString::number(time) + " secondi";
-            *   ui->displayRes->setText(res);*/
+           std::cout<<"GINO"<<std::endl;
+           std::vector<Damage*>ritorno = selected2.MaxPower(time);
+           std::cout<<"GINO2"<<std::endl;
+           std::vector<Damage*>::iterator it = ritorno.begin();
+           std::cout<<"GINO3"<<std::endl;
+           if(dynamic_cast<BaseAttack*>(*it)){
+                  res1 = "Il miglior DPS è un BaseAttack con " + QString::number(ritorno[0]->getValue()) + " danni e";}
+           else
+                  res1 = "Il miglior DPS è una Skill con " + QString::number(ritorno[0]->getValue()) + " danni e";
+
+           if(dynamic_cast<BaseAttack*>(*it))
+               res2 = " il miglior DPT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
+           else
+               res2 = " il miglior DPT è una Skill con " + QString::number(ritorno[1]->getValue());
+
+           QString fres = res1+res2;
+           ui->displayRes->setText(fres);
+           return;
         }
     }
-
 }

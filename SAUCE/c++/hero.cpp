@@ -185,11 +185,16 @@ char Hero::Fight(Hero* h){
     return 0;
 }
 
+#include<iostream>
+
 std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
+        std::cout<<"DARIO"<<std::endl;
     std::vector<Damage*> t;
     std::vector<Damage*> result;
+        std::cout<<"DARIO2"<<std::endl;
     Damage* DPS=new BaseAttack;
     Damage* DBT=new BaseAttack;
+         std::cout<<"DARIO3"<<std::endl;
     t.insert(t.end(),skills.begin(),skills.end());
     t.push_back(dynamic_cast<BaseAttack*>(this));
     std::vector<Damage*>::iterator it=t.begin();
@@ -204,24 +209,33 @@ std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
                 DPS=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
         }
         if((*it)->DamageByTime(time,distance)>maxDBT){
-            maxDBT=(*it)->DamageByTime(distance);
+            maxDBT=(*it)->DamageByTime(time,distance);
             if(dynamic_cast<Skill*>(*it))
                 DBT=new Skill(*(dynamic_cast<Skill*>(*it)));
             else
                 DBT=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
         }
     }
-    Skill* res;
-    res=new Skill((*(dynamic_cast<Skill*>(DPS))));
-    if(res)
-        result.push_back(new Skill(*(res)));
+
+    //Skill* resDPS;
+     if((dynamic_cast<Skill*>(DPS)))
+    //resDPS=new Skill((*(dynamic_cast<Skill*>(DPS))));
+    //if(resDPS)
+        result.push_back(new Skill((*(dynamic_cast<Skill*>(DPS)))));
     else
         result.push_back(new BaseAttack(*(dynamic_cast<BaseAttack*>(DPS))));
-    res=new Skill((*(dynamic_cast<Skill*>(DBT))));
-    if(res)
-        result.push_back(new Skill(*(res)));
+
+
+    /*Skill* resDBT;
+    /resDBT=new Skill((*(dynamic_cast<Skill*>(DBT))));*/
+
+      std::cout<<"TANTO"<<std::endl;
+
+    if((dynamic_cast<Skill*>(DBT)))
+        result.push_back(new Skill((*(dynamic_cast<Skill*>(DBT)))));
     else
         result.push_back(new BaseAttack(*(dynamic_cast<BaseAttack*>(DBT))));
+
     result[0]->setValue(maxDPS);
     result[1]->setValue(maxDBT);
     return result;
