@@ -36,7 +36,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Clear</string>
+    <string>Close</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">

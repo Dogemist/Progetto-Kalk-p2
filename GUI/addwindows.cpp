@@ -41,7 +41,7 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     levelLine->setValidator(new QIntValidator(0,4,this));
     levelLine->setText(tr("0"));
 
-    confirmButtonS = new QPushButton(tr("Add"));
+    confirmButtonS = new QPushButton();
     clearButtonS= new QPushButton(tr("Close"));
 
     connect(clearButtonS, SIGNAL(clicked()), this, SLOT(clearClicked()));

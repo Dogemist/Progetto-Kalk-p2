@@ -1,5 +1,4 @@
 #include "addwindowsum.h"
-
 addWindowSum::addWindowSum(QWidget *parent) :
     QDialog(parent)
 {
@@ -19,9 +18,9 @@ addWindowSum::addWindowSum(QWidget *parent) :
 
 
     confirmButton = new QPushButton();
-    clearButton= new QPushButton(tr("Clear"));
+    clearButton= new QPushButton(tr("Cancel"));
 
-    connect(clearButton, SIGNAL(clicked()), this, SLOT(clearClicked()));
+    connect(clearButton, SIGNAL(clicked()), this, SLOT(onClearClicked()));
     connect(confirmButton, SIGNAL(clicked()),this, SLOT(onAddClicked()));
 
     QVBoxLayout* mainLayout = new QVBoxLayout;
@@ -43,9 +42,7 @@ addWindowSum::addWindowSum(QWidget *parent) :
 
 
 addWindowSum::~addWindowSum()
-{
-
-}
+{}
 
 
 void addWindowSum::onAddClicked(){
@@ -68,7 +65,7 @@ void addWindowSum::onAddClicked(){
 }
 
 void addWindowSum::onClearClicked(){
-
+    close();
 }
 
 void addWindowSum::insertBA(){

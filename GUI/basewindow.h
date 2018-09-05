@@ -22,7 +22,7 @@ class baseWindow : public QWidget
     Q_OBJECT
 public:
     explicit baseWindow(QWidget *parent = 0);
-
+    ~baseWindow();
     bool firstCheck();
     void insertInBList();
     QListWidget* Blist;

@@ -335,7 +335,7 @@ void heroWindow::on_fightButton_clicked()
         else if(result == 'w')
             ui->displayRes->setText(tr("%1 win the fight").arg(selected1.getName()));
         else
-            ui->displayRes->setText(tr("%1   win the fight").arg(selected2.getName()));
+            ui->displayRes->setText(tr("%1 win the fight").arg(selected2.getName()));
     }
 }
 

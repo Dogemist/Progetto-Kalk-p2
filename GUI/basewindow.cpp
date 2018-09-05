@@ -1,5 +1,5 @@
 #include "basewindow.h"
-
+#include <iostream>
 baseWindow::baseWindow(QWidget *parent): QWidget(parent)
 {
     setFixedSize(900,400);
@@ -111,6 +111,9 @@ baseWindow::baseWindow(QWidget *parent): QWidget(parent)
 
 }
 
+baseWindow::~baseWindow(){
+    std::cout<<"MEMINO CIAONE"<<std::endl;
+}
 
 void baseWindow::onItemClicked(QListWidgetItem *item)   //Connect della BList, quando clicco su un oggetto:
 {

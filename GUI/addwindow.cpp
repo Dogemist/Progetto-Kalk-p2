@@ -8,7 +8,7 @@ addWindow::addWindow(QDialog *parent) : QDialog(parent)
     QLabel* rangeLabel = new QLabel(tr("Range"));
     QLabel* projLabel = new QLabel(tr("Projectile Speed"));
 
-    valid = new QDoubleValidator(1,10,2,animationLine);
+    valid = new QDoubleValidator(1,10,2,0);
     valid->setNotation(QDoubleValidator::StandardNotation);
 
     validPP = new QDoubleValidator(1,9999,2,0);

@@ -87,7 +87,8 @@ void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KA
 
     savedB.clear();
 
-
+    hw->deleteLater();
+    suw->deleteLater();
     sw->deleteLater();
     bw->setAcceptDrops(Qt::WA_DeleteOnClose);
     close();                //chiusura della change kalk

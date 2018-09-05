@@ -53,6 +53,7 @@ void summonedWindow::on_addButton_clicked()
             QMessageBox::information(this,tr("Error"),tr("%1 is in the list").arg(nameT));
 
 }
+     delete auw;
 }
 
 void summonedWindow::on_select1Button_clicked()
