@@ -51,6 +51,10 @@ private slots:
     void on_fightButton_clicked();
     void on_deleteButton_clicked();
 
+    void on_powButton1_clicked();
+
+    void on_powBut2_clicked();
+
 private:
 
     Hero h;

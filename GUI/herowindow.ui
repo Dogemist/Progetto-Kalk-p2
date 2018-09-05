@@ -199,7 +199,7 @@
    <widget class="QPushButton" name="clearButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>200</y>
       <width>80</width>
       <height>25</height>
@@ -212,7 +212,7 @@
    <widget class="QPushButton" name="addButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>120</y>
       <width>80</width>
       <height>25</height>
@@ -225,7 +225,7 @@
    <widget class="QPushButton" name="fightButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>320</y>
       <width>81</width>
       <height>51</height>
@@ -238,7 +238,7 @@
    <widget class="QLineEdit" name="heroLine2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>110</y>
       <width>113</width>
       <height>25</height>
@@ -251,7 +251,7 @@
    <widget class="QLineEdit" name="HPLine2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>150</y>
       <width>113</width>
       <height>25</height>
@@ -264,7 +264,7 @@
    <widget class="QLineEdit" name="skill3Line2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>310</y>
       <width>113</width>
       <height>25</height>
@@ -277,7 +277,7 @@
    <widget class="QLineEdit" name="skill4Line2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>350</y>
       <width>113</width>
       <height>25</height>
@@ -290,7 +290,7 @@
    <widget class="QLineEdit" name="MPLine2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>190</y>
       <width>113</width>
       <height>25</height>
@@ -303,7 +303,7 @@
    <widget class="QLineEdit" name="skill1Line2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>230</y>
       <width>113</width>
       <height>25</height>
@@ -316,7 +316,7 @@
    <widget class="QLineEdit" name="skill2Line2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>270</y>
       <width>113</width>
       <height>25</height>
@@ -329,7 +329,7 @@
    <widget class="QLabel" name="skill">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>230</y>
       <width>54</width>
       <height>17</height>
@@ -342,7 +342,7 @@
    <widget class="QLabel" name="nameLabel2">
     <property name="geometry">
      <rect>
-      <x>683</x>
+      <x>693</x>
       <y>110</y>
       <width>51</width>
       <height>20</height>
@@ -355,7 +355,7 @@
    <widget class="QLabel" name="skill2Label2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>270</y>
       <width>54</width>
       <height>17</height>
@@ -368,7 +368,7 @@
    <widget class="QLabel" name="skill4Label2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>350</y>
       <width>54</width>
       <height>17</height>
@@ -381,7 +381,7 @@
    <widget class="QLabel" name="MPLabel2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>190</y>
       <width>54</width>
       <height>17</height>
@@ -394,7 +394,7 @@
    <widget class="QLabel" name="HPLabel2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>150</y>
       <width>54</width>
       <height>17</height>
@@ -407,7 +407,7 @@
    <widget class="QLabel" name="skill3Label2">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>690</x>
       <y>310</y>
       <width>54</width>
       <height>17</height>
@@ -422,7 +422,7 @@
      <rect>
       <x>20</x>
       <y>420</y>
-      <width>191</width>
+      <width>201</width>
       <height>25</height>
      </rect>
     </property>
@@ -433,9 +433,9 @@
    <widget class="QPushButton" name="selectHero2">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>420</y>
-      <width>191</width>
+      <width>201</width>
       <height>25</height>
      </rect>
     </property>
@@ -446,9 +446,9 @@
    <widget class="QLineEdit" name="displayRes">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>20</y>
-      <width>741</width>
+      <width>761</width>
       <height>61</height>
      </rect>
     </property>
@@ -473,7 +473,7 @@
    <widget class="QPushButton" name="changeKalkHero">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>280</y>
       <width>80</width>
       <height>25</height>
@@ -486,7 +486,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>295</x>
+      <x>305</x>
       <y>439</y>
       <width>161</width>
       <height>20</height>
@@ -507,7 +507,7 @@
    <widget class="QListWidget" name="HList">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>240</x>
       <y>470</y>
       <width>301</width>
       <height>71</height>
@@ -530,8 +530,8 @@
    <widget class="QPushButton" name="htpH1But">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>470</y>
+      <x>20</x>
+      <y>510</y>
       <width>80</width>
       <height>25</height>
      </rect>
@@ -543,8 +543,8 @@
    <widget class="QPushButton" name="dptH1But">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>510</y>
+      <x>110</x>
+      <y>470</y>
       <width>111</width>
       <height>25</height>
      </rect>
@@ -556,8 +556,8 @@
    <widget class="QPushButton" name="htpH1But_2">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>470</y>
+      <x>560</x>
+      <y>510</y>
       <width>80</width>
       <height>25</height>
      </rect>
@@ -569,8 +569,8 @@
    <widget class="QPushButton" name="dptH2But">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>510</y>
+      <x>650</x>
+      <y>470</y>
       <width>111</width>
       <height>25</height>
      </rect>
@@ -582,7 +582,7 @@
    <widget class="QPushButton" name="dpsH2But">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>560</x>
       <y>470</y>
       <width>80</width>
       <height>25</height>
@@ -595,7 +595,7 @@
    <widget class="QPushButton" name="editButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>160</y>
       <width>80</width>
       <height>25</height>
@@ -608,7 +608,7 @@
    <widget class="QPushButton" name="deleteButton">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>350</x>
       <y>240</y>
       <width>80</width>
       <height>25</height>
@@ -616,6 +616,32 @@
     </property>
     <property name="text">
      <string>Remove</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="powButton1">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>510</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Powerfull Attack</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="powBut2">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>510</y>
+      <width>111</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Powerfull Attack</string>
     </property>
    </widget>
   </widget>
