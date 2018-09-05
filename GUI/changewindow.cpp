@@ -40,12 +40,12 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     savedB.insert(tr("Ice Punch"), BaseAttack(13,1.2,4,3));
 
     savedS.insert(tr("Blade Fury"),Skill(100,"Blade Fury",120,5,42,1,0.2,1,true));
-    savedS.insert(tr("Omnislash"),Skill(500,"Omnislash",200,2,130,400,1,300,true));
-    savedS.insert(tr("Arc Lightning"),Skill(75,"Arc Lightning",65,0.9,400,85,75,1,true));
+    savedS.insert(tr("Omnislash"),Skill(500,"Omnislash",200,2,130,400,300,1,true));
+    savedS.insert(tr("Arc Lightning"),Skill(75,"Arc Lightning",65,0.9,400,85,200,1,true));
     savedS.insert(tr("Soul Assumption"),Skill(70,"Soul Assumption",170,1.75,4,90,0.4,1,true));
 
     savedS.insert(tr("Boundless Strike"),Skill(175,"Boundless Strike",100,0.9,22,600,300,2,true));
-    savedS.insert(tr("Searing Chains"),Skill(25,"Searing Chains",65,0.87,12,20,18,2,true));
+    savedS.insert(tr("Searing Chains"),Skill(92,"Searing Chains",65,0.87,12,20,18,2,true));
     savedS.insert(tr("Great Cleave"),Skill(145,"Great Cleave",120,0.3,13,1,0.5,2,true));
     savedS.insert(tr("Avalanche"),Skill(180,"Avalanche",120,0.53,21,5,3,2,true));
 

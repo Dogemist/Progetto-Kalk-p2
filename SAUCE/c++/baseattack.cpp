@@ -15,9 +15,8 @@ double BaseAttack::operator-(Damage* d) const{
     return this->getValue()-d->getValue();
 
 }
-bool BaseAttack::operator==(Damage* d) const{
-    BaseAttack* x=dynamic_cast<BaseAttack*>(d);
-    if(x)
+bool BaseAttack::operator==(const Damage& d) const{
+BaseAttack* x=dynamic_cast<BaseAttack*>(&const_cast<Damage&>(d));    if(x)
         return this->getValue()-x->getValue()<0.001&&(anim-x->anim<0.001)&&(projectileSpeed==x->projectileSpeed);
     else return false;
 }
@@ -37,7 +36,7 @@ bool BaseAttack::IsCastable(double time, unsigned int distance) const{
 }
 
 unsigned int BaseAttack::HitByTime(double time,unsigned int distance){
-    return time/((distance/projectileSpeed)+anim);
+    return static_cast<unsigned int>(time/((distance/projectileSpeed)+anim));
 }
 
 double BaseAttack::DPS(unsigned int distance) {

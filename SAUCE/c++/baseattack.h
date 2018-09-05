@@ -29,7 +29,7 @@ public:
     BaseAttack* clone()const;
     double operator+(Damage* d) const;
     double operator-(Damage* d) const ;
-    bool operator==(Damage* d ) const;
+    bool operator==(const Damage& d ) const;
     bool operator==(const BaseAttack) const;
 };
 

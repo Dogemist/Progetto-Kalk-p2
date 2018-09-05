@@ -55,9 +55,9 @@ double Skill::operator+(Damage* d) const{
 double Skill::operator-(Damage* d) const{
      return this->getValue()-d->getValue();
 }
-bool Skill::operator==(Damage* d) const{
+bool Skill::operator==(const Damage& d) const{
     Skill* x;
-    x=dynamic_cast<Skill*>(d);
+    x=dynamic_cast<Skill*>(&const_cast<Damage&>(d));
     if(x)
         return this->Sname==x->Sname;
     else

@@ -22,7 +22,7 @@ protected:
 
    virtual double operator+(Damage*) const =0;
    virtual double operator-(Damage*) const =0;
-   virtual bool operator==(Damage*) const =0;
+   virtual bool operator==(const Damage&) const =0;
 };
 
 #endif // DAMAGE_H
