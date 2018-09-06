@@ -19,7 +19,7 @@ public:
     double DPS(unsigned int distance=0);
     double DamageByTime(double time,unsigned int distance=0);
     unsigned int HitByTime(double time,unsigned int distance=0);
-    bool IsCastable(double, unsigned int distance=0)const;
+    bool IsCastable(double, unsigned int distance=0);
     double getAnim() const;
     unsigned int getRange() const;
     unsigned int getPP() const;

@@ -26,7 +26,7 @@ bool BaseAttack::operator ==(const BaseAttack ba) const{
 
 }
 
-bool BaseAttack::IsCastable(double time, unsigned int distance) const{
+bool BaseAttack::IsCastable(double time, unsigned int distance) {
     if(time+0.001<(anim+(distance/projectileSpeed))||distance>range){
         return false;
     }

@@ -15,7 +15,7 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
     validAn = new QDoubleValidator(1,9999,2);
     validAn->setNotation(QDoubleValidator::StandardNotation);
 
-    validPP = new QDoubleValidator(1,9999,2,0);
+    validPP = new QDoubleValidator(1,9999,2);
     validPP->setNotation(QDoubleValidator::StandardNotation);
 
     nameLineS = new QLineEdit;

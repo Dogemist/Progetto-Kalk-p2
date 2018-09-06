@@ -154,7 +154,7 @@ void baseWindow::addClicked(){
             QString rangeTmp = aw->getRange();
             QString projTmp = aw->getProj();
             //creo un BaseAttack temporaneo con i dati appena ricevuti
-            BaseAttack tmp(dannoTmp.toDouble(),animTmp.toDouble(),rangeTmp.toDouble(),projTmp.toDouble());
+            BaseAttack tmp(dannoTmp.toDouble(),animTmp.toDouble(),rangeTmp.toInt(),projTmp.toInt());
             storedBA.insert(nameTmp,tmp); //lo inserisco nella mappa sotto Key "Nome del BaseAttack" e Value il baseAttack tmp
             Blist->addItem(nameTmp);      //aggiungo il nome del BaseAttack alla list widget.
             displayBA->setText(tr("Base attack \"%1\" added! ").arg(nameTmp));   //messaggio di successo
