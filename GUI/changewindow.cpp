@@ -1,5 +1,5 @@
 #include "changewindow.h"
-
+#include <QDesktopWidget>
 
 changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
 {
@@ -8,6 +8,10 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     heroKalk = new QPushButton(tr("Hero Kalk"));
     summonKalk = new QPushButton(tr("Summon Kalk"));
     skillKalk = new QPushButton(tr("Skill Kalk"));
+
+    QRect position = frameGeometry();
+      position.moveCenter(QDesktopWidget().availableGeometry().center());
+      move(position.topLeft());
 
     connect(baseKalk,SIGNAL(clicked()), this, SLOT(openBase()));
     connect(summonKalk, SIGNAL(clicked()),this, SLOT(openSummon()));
