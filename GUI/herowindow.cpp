@@ -408,13 +408,13 @@ void heroWindow::on_powButton1_clicked()
 
                res1 = "Il miglior DPS è un BaseAttack con " + QString::number(ritorno[0]->getValue()) + " danni e";}
            else
-               res1 = "Il miglior DPS è una Skill con " + QString::number(ritorno[0]->getValue()) + " danni e";
+               res1 = tr("Il miglior DPS è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[0]->getValue()) + " danni e";
 
            it++;
            if(dynamic_cast<BaseAttack*>(*it))
                res2 = " il miglior DPT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
            else
-               res2 = " il miglior DPT è una Skill con " + QString::number(ritorno[1]->getValue());
+               res2 = tr(" il miglior DPT è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[1]->getValue());
 
 
            QString fres = res1+res2;
@@ -451,12 +451,12 @@ void heroWindow::on_powBut2_clicked()
            if(dynamic_cast<BaseAttack*>(*it)){
                   res1 = "Il miglior DPS è un BaseAttack con " + QString::number(ritorno[0]->getValue()) + " danni e";}
            else
-                  res1 = "Il miglior DPS è una Skill con " + QString::number(ritorno[0]->getValue()) + " danni e";
+                  res1 = tr("Il miglior DPS è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[0]->getValue()) + " danni e";
 
            if(dynamic_cast<BaseAttack*>(*it))
                res2 = " il miglior DPT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
            else
-               res2 = " il miglior DPT è una Skill con " + QString::number(ritorno[1]->getValue());
+               res2 = tr(" il miglior DPT è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[1]->getValue());
 
            QString fres = res1+res2;
            ui->displayRes->setText(fres);
