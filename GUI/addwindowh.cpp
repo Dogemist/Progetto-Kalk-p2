@@ -6,6 +6,7 @@ addWindowH::addWindowH(QWidget *parent) :
     ui(new Ui::addWindowH)
 {
     ui->setupUi(this);
+    setWindowModality(Qt::ApplicationModal);
 }
 
 addWindowH::~addWindowH()

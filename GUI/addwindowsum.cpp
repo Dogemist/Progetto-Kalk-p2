@@ -2,6 +2,9 @@
 addWindowSum::addWindowSum(QWidget *parent) :
     QDialog(parent)
 {
+
+    setWindowModality(Qt::ApplicationModal);
+
     QLabel* nameLabel = new QLabel(tr("Name"));
     QLabel* hpLabel = new QLabel(tr("Hp"));
     QLabel* levelLabel= new QLabel(tr("Level"));

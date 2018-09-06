@@ -2,12 +2,13 @@
 
 addWindow::addWindow(QDialog *parent) : QDialog(parent)
 {
+    setWindowModality(Qt::ApplicationModal);
+
     QLabel* nameLabel = new QLabel(tr("Name"));
     QLabel* dannoLabel = new QLabel(tr("Damage"));
     QLabel* animationLabel = new QLabel(tr("Animation"));
     QLabel* rangeLabel = new QLabel(tr("Range"));
     QLabel* projLabel = new QLabel(tr("Projectile Speed"));
-
     valid = new QDoubleValidator(1,10,2);
     valid->setNotation(QDoubleValidator::StandardNotation);
 

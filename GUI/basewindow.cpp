@@ -4,7 +4,6 @@
 baseWindow::baseWindow(QWidget *parent): QWidget(parent)
 {
     setFixedSize(900,400);
-
     QRect position = frameGeometry();
     position.moveCenter(QDesktopWidget().availableGeometry().center());
     move(position.topLeft());
@@ -142,11 +141,11 @@ void baseWindow::changeKalkClicked(){
 
 
 void baseWindow::addClicked(){
-    addWindow* aw = new addWindow;
+    addWindow* aw = new addWindow();
     aw->updateMode(add);
     aw->show();                                 //mostro la finestra
     if(aw->exec() == QDialog::Accepted){        //se la finestra mi manda un segnale "Accepted"
-       QString nameTmp = aw->getName();         //assegno il nome inserito ad una variabile temporanea
+        QString nameTmp = aw->getName();         //assegno il nome inserito ad una variabile temporanea
        if(!storedBA.contains(nameTmp)){         //Se il nome NON è presente nella mappa
             QString dannoTmp = aw->getDanno();  //assegno i valori del BaseAttack a stringhe
             QString animTmp = aw->getAnim();

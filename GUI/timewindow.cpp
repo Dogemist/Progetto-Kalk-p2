@@ -3,7 +3,7 @@
 timeWindow::timeWindow(QDialog *parent) : QDialog(parent)
 {
     setWindowTitle("Set Time");
-
+    setWindowModality(Qt::ApplicationModal);
     QLabel* timeLabel = new QLabel(tr("Insert time (seconds)"));
     timeButton = new QPushButton(tr("Insert"));
     timeLine = new QLineEdit;

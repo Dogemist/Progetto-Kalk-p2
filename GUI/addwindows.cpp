@@ -2,6 +2,7 @@
 
 addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
 {
+    setWindowModality(Qt::ApplicationModal);
 
     QLabel* nameLabel = new QLabel(tr("Name"));
     QLabel* dannoLabel = new QLabel(tr("Damage"));

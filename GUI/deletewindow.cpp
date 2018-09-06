@@ -3,6 +3,8 @@
 
 deleteWindow::deleteWindow(QDialog *parent) : QDialog(parent)
 {
+     setWindowModality(Qt::ApplicationModal);
+
     delRButton = new QPushButton(tr("Delete"));
     delLine = new QLineEdit;
     delText = "";
