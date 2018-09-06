@@ -18,12 +18,12 @@ unsigned int SummonedUnit::getLevel()const{
     return level;
 }
 
-double SummonedUnit::DPS() {
-    return BaseAttack::DPS()*level*multiplier;
+double SummonedUnit::DPS(unsigned int distance) {
+    return BaseAttack::DPS(distance)*level*multiplier;
 }
 
-double SummonedUnit::DamageByTime(double time) {
-    return BaseAttack::DamageByTime(time)*level*multiplier;
+double SummonedUnit::DamageByTime(double time,unsigned int distance) {
+    return BaseAttack::DamageByTime(time,distance)*level*multiplier;
 }
 
 char SummonedUnit::Fight(SummonedUnit* s){

@@ -47,7 +47,7 @@ public:
 
   std::vector<Damage*> MaxDamageByTime(double,unsigned int distance=0);
   double MaxDamageByTimeDMG(double,unsigned int distance=0);
-  char Fight(Hero*);
+  char Fight(Hero *);
   std::vector<Damage*> MaxPower(double,unsigned int distance=0);
 
 };
