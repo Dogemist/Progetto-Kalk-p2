@@ -2,7 +2,7 @@
 #define BASEWINDOW_H
 
 #include <QMainWindow>
-#include <QWidget>
+#include <QDesktopWidget>
 #include <QGridLayout>
 #include <QLineEdit>
 #include <QMessageBox>

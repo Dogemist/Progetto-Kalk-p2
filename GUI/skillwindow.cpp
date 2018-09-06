@@ -5,10 +5,13 @@ skillWindow::skillWindow(QWidget *parent): QWidget(parent)
 
     setFixedSize(900,400);
 
+    QRect position = frameGeometry();
+    position.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(position.topLeft());
+
     SdisplayRes = new QLineEdit;
     SdisplayRes->setReadOnly(true);
     SdisplayRes->setAlignment(Qt::AlignRight);
-
 
     displayS = new QLineEdit(tr("Select or create a skill from the list"));
     displayS->setReadOnly(true);

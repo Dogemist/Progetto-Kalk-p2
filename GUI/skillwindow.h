@@ -1,9 +1,8 @@
 #ifndef SKILLWINDOW_H
 #define SKILLWINDOW_H
 
-#include <QWidget>
 #include <QMainWindow>
-#include <QWidget>
+#include <QDesktopWidget>
 #include <QGridLayout>
 #include <QLineEdit>
 #include <QMessageBox>

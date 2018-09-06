@@ -1,6 +1,5 @@
 #include "herowindow.h"
 #include "ui_herowindow.h"
-#include <iostream>
 #include <vector>
 
 heroWindow::heroWindow(QWidget *parent) :
@@ -9,6 +8,11 @@ heroWindow::heroWindow(QWidget *parent) :
 {
 
     ui->setupUi(this);
+
+    QRect position = frameGeometry();
+    position.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(position.topLeft());
+
     def = Hero(-1,"Default");
     h = def;
     selected1 = def;

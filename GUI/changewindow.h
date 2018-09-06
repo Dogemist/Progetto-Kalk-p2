@@ -2,6 +2,7 @@
 #define CHANGEWINDOW_H
 
 #include <QWidget>
+#include <QDesktopWidget>
 #include "herowindow.h"
 #include "summonedwindow.h"
 #include "basewindow.h"

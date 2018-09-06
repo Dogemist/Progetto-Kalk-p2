@@ -5,6 +5,11 @@ summonedWindow::summonedWindow(QWidget *parent): QMainWindow(parent),
     ui(new Ui::summonedWindow)
 {
     ui->setupUi(this);
+
+    QRect position = frameGeometry();
+    position.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(position.topLeft());
+
     def= SummonedUnit(-1,"Empty_Sum");
     su = def;
     selected1 = def;

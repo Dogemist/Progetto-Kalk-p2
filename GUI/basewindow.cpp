@@ -1,13 +1,18 @@
 #include "basewindow.h"
-#include <iostream>
+#include <QDesktopServices>
+
 baseWindow::baseWindow(QWidget *parent): QWidget(parent)
 {
     setFixedSize(900,400);
 
+    QRect position = frameGeometry();
+    position.moveCenter(QDesktopWidget().availableGeometry().center());
+    move(position.topLeft());
+
     BdisplayRes = new QLineEdit;                      //assegnazione    [BARRA IN ALTO]
     BdisplayRes->setReadOnly(true);                  //si può solo leggere e non scrivere
     BdisplayRes->setAlignment(Qt::AlignRight);        //allineamento a destra
-    BdisplayRes->setMaxLength(70);                    //numero massimo di caratteri che può contenere
+    BdisplayRes->setMaxLength(70);                    //numero massimo di caratteri che può contener
 
     displayBA = new QLineEdit(tr("Select or create a BaseAttack from the list")); //assegnazione con testo base [BARRA BASSA]
     displayBA->setReadOnly(true);
@@ -112,7 +117,6 @@ baseWindow::baseWindow(QWidget *parent): QWidget(parent)
 }
 
 baseWindow::~baseWindow(){
-    std::cout<<"MEMINO CIAONE"<<std::endl;
 }
 
 void baseWindow::onItemClicked(QListWidgetItem *item)   //Connect della BList, quando clicco su un oggetto:

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
+#include <QDesktopWidget>
 #include <SAUCE/c++/hero.h>
 #include "summonedwindow.h"
 #include "changewindow.h"
