@@ -79,7 +79,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
         }
         for(it=skills.begin(); it!=skills.end(); it++){    //FOR PER L'ATTACCO + FORTE
             double checkDBT = (*it)->DamageByTime(max);//cerca il DamageByTime della skill puntata da it
-            if(checkDBT>maxDmg && (*it)->getReady()&&mana>(*it)->getManaCost()){
+            if(checkDBT>maxDmg && (*it)->getReady()&&mana>((*it)->getManaCost()*(*it)->HitByTime(max))){
                 maxDmg=checkDBT;
                 d=*it;
             }
@@ -90,9 +90,11 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
                 if(s->getReady()){
                     if(s->totalTime()*s->HitByTime(max)<max)//controllo se il tempo totale di cast della skill è minore del massimo
                         max=s->totalTime()*s->HitByTime(max);
-                    mana=mana-s->getManaCost();//tolgo dal mana rimanente il mana per castare la skill
-                    v.push_back(s);//inserisco la spell nel vettore dei danni
-                    timing.push_back(i);//inserisco il timing dell'azione
+                    mana=mana-s->getManaCost()*s->HitByTime(max);//tolgo dal mana rimanente il mana per castare la skill
+                    for(unsigned int x=0;x<s->HitByTime(max);x++){
+                        v.push_back(s);//inserisco la spell nel vettore dei danni
+                        timing.push_back(i+x*s->totalTime());//inserisco il timing dell'azione
+                    }
                 }
             }
         }else{
