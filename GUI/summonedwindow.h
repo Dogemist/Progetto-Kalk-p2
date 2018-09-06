@@ -24,8 +24,6 @@ public:
     QMap<QString,SummonedUnit> storedSummoned;
     QMap<QString,BaseAttack> passedBA;
     QMap<QString,Skill> salvS;
-    QMap<QString,Hero> salvH;
-    QMap<QString,QVector<Skill> > salvHS;
     QMap<QString,QString> storedSB;
 
     void insertInSumListWidget();

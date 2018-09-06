@@ -170,10 +170,9 @@ void summonedWindow::insertInSumListWidget(){
 void summonedWindow::on_changeKalkHero_clicked()
 {
     changeWindow* cw = new changeWindow;
-    cw->SaveMap(passedBA,salvS,salvH,storedSummoned,salvHS,storedSB);
+    cw->SaveMap(passedBA,salvS,storedSummoned,storedSB);
     passedBA.clear();
     salvS.clear();
-    salvH.clear();
     storedSummoned.clear();
     cw->setAttribute(Qt::WA_DeleteOnClose);
     cw->show();

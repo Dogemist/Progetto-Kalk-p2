@@ -121,12 +121,10 @@ void skillWindow::onItemClicked(QListWidgetItem *item)
 
 void skillWindow::changeKalkClicked(){
         changeWindow* cw = new changeWindow;
-        cw->SaveMap(salvBA,storedS,salvH,salvSum,salvHS,salvSB);
+        cw->SaveMap(salvBA,storedS,salvSum,salvSB);
         storedS.clear();
         salvBA.clear();
         salvSum.clear();
-        salvH.clear();
-        salvHS.clear();
         salvSB.clear();
         cw->show();
         cw->setAttribute(Qt::WA_DeleteOnClose);

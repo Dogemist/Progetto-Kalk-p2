@@ -26,10 +26,8 @@ public:
     void insertInSList();
     bool firstCheck();
     QMap<QString,Skill> storedS;
-    QMap<QString,Hero> salvH;
     QMap<QString,BaseAttack> salvBA;
     QMap<QString,SummonedUnit> salvSum;
-    QMap<QString,QVector<Skill> > salvHS;
     QMap<QString,QString> salvSB;
 
 

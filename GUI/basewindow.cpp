@@ -131,10 +131,9 @@ sostituisce a %1 il testo presente nell'item passato dalla BList*/
 
 void baseWindow::changeKalkClicked(){
     changeWindow* cw = new changeWindow; //Nuova finestra per il cambio di kalk
-    cw->SaveMap(storedBA,salvS,salvH,salvSum,salvHS,salvSB); //Pass le QMap StoredBA, SalvH e SalvS a changeKalk
+    cw->SaveMap(storedBA,salvS,salvSum,salvSB); //Pass le QMap StoredBA, SalvH e SalvS a changeKalk
     storedBA.clear();                   //svuoto le mappe presenti per evitare eventuali doppioni
     salvS.clear();
-    salvH.clear();
     salvSum.clear();
     cw->show();
     cw->setAttribute(Qt::WA_DeleteOnClose);

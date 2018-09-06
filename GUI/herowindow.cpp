@@ -44,7 +44,7 @@ void heroWindow::insertInQListWidget(){
 void heroWindow::on_changeKalkHero_clicked()    //stesso concetto dei precendenti
 {
     changeWindow* cw = new  changeWindow;
-    cw->SaveMap(salvBA,salvS,storedHeroes,salvSum,Hspell,salvSB);
+    cw->SaveMap(salvBA,salvS,salvSum,salvSB);
     salvBA.clear();
     salvS.clear();
     salvSum.clear();
@@ -220,7 +220,7 @@ void heroWindow::on_clearButton_clicked()
     selected2 = def;
     h = def;
     ui->HList->clearSelection();
-    ui->displayRes->setText(tr("SELECT OR CREATE AN HERO"));
+    ui->displayRes->setText(tr("Select or create an Hero"));
 }
 
 

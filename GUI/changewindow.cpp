@@ -76,18 +76,15 @@ void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KA
     bw->show();                 //mostro la finestra creata col costruttore
     bw->storedBA = savedB;      //Gli passo le QMap dove stored e' quella che verrà utilizzata
     bw->salvS = savedS;         //mentre saved* è quella di passaggio delle altre kalk
-    bw->salvH = savedH;
-    bw->salvHS = savedHS;
     bw->salvSum = savedSum;
     bw->salvSB = savedSB;
     bw->insertInBList();
 
 
     bw->storedBA.detach();  //detach delle mappe da quella originale
-    bw->salvH.detach();
     bw->salvS.detach();
-    bw->salvHS.detach();
     bw->salvSum.detach();
+    bw->salvSB.detach();
 
     savedB.clear();
 
@@ -106,15 +103,11 @@ void changeWindow::openSkill(){
     sw->storedS = savedS;
     sw->salvSum = savedSum;
     sw->salvBA = savedB;
-    sw->salvH = savedH;
-    sw->salvHS = savedHS;
     sw->salvSB = savedSB;
 
     sw->insertInSList();
     sw->salvBA.detach();
-    sw->salvH.detach();
     sw->salvSum.detach();
-    sw->salvHS.detach();
     sw->storedS.detach();
     sw->salvSB.detach();
 
@@ -133,19 +126,15 @@ void changeWindow::openHero(){
 
          hw->show();
 
-         hw->storedHeroes = savedH; //passo la mappa
-         hw->Hspell = savedHS;
          hw->salvBA = savedB;
          hw->salvS = savedS;
          hw->salvSum = savedSum;
          hw->salvSB = savedSB;
          hw->insertInQListWidget();
 
-         hw->storedHeroes.detach();
          hw->salvSum.detach();
          hw->salvBA.detach();
          hw->salvS.detach();
-         hw->Hspell.detach();
          hw->salvSB.detach();
 
          sw->deleteLater();
@@ -162,13 +151,9 @@ void changeWindow::openSummon(){
     suw->storedSB = savedSB;
     suw->passedBA = savedB;
     suw->salvS = savedS;
-    suw->salvH = savedH;
-    suw->salvHS = savedHS;
 
     suw->insertInSumListWidget();
-    suw->salvH.detach();
     suw->salvS.detach();
-    suw->salvHS.detach();
     suw->passedBA.detach();
     suw->storedSB.detach();
 
@@ -181,18 +166,14 @@ void changeWindow::openSummon(){
 
 }
 
-void changeWindow::SaveMap(QMap<QString, BaseAttack>& base, QMap<QString, Skill>& skill, QMap<QString, Hero> & hero, QMap<QString,SummonedUnit>& summon, QMap<QString, QVector<Skill> >& hs,  QMap<QString,QString>&sb){
+void changeWindow::SaveMap(QMap<QString, BaseAttack>& base, QMap<QString, Skill>& skill,QMap<QString,SummonedUnit>& summon, QMap<QString,QString>&sb){
     //funzione usata dalle kalk all'atto del cambio di calcolatrice, semplicemnte passa le kalk
-    savedH = hero;
     savedB = base;
     savedS = skill;
     savedSum = summon;
-    savedHS = hs;
     savedSB = sb;
-    savedH.detach();
     savedB.detach();
     savedS.detach();
     savedSum.detach();
-    savedHS.detach();
     savedSB.detach();
 }

@@ -27,10 +27,8 @@ public:
     void insertInBList();
     QListWidget* Blist;
     QMap<QString,BaseAttack> storedBA;
-    QMap<QString,Hero> salvH;
     QMap<QString,Skill> salvS;            //mi tocca portarla qua altrimenti se fai
     QMap<QString,SummonedUnit> salvSum;   //skill->change->base->change->skill la lista viene persa
-    QMap<QString,QVector<Skill> >salvHS;
     QMap<QString,QString> salvSB;
 public slots:
 
