@@ -5,9 +5,9 @@ enum Mode{add,edit};
 
 class Damage
 {
-protected:
+private:
     double value;
-    public:
+public:
 
    Damage(double d): value(d){}
    virtual ~Damage() =0;

@@ -6,8 +6,8 @@ BaseAttack::BaseAttack(double v, double a, unsigned int r, unsigned int p):PDama
 
 double BaseAttack::operator+(Damage* d) const{
    BaseAttack* c=new BaseAttack();
-   c->value=this->getValue()+d->getValue();
-   return c->value;
+   c->setValue(this->getValue()+d->getValue());
+   return c->getValue();
 
 }
 
@@ -40,11 +40,11 @@ unsigned int BaseAttack::HitByTime(double time,unsigned int distance){
 }
 
 double BaseAttack::DPS(unsigned int distance) {
-    return HitByTime(1,distance)*value;
+    return HitByTime(1,distance)*getValue();
 }
 
 double BaseAttack::DamageByTime(double time,unsigned int distance) {
-   return HitByTime(time,distance)*value;
+   return HitByTime(time,distance)*getValue();
 }
 
 double BaseAttack::getAnim() const {return anim;}
@@ -60,7 +60,7 @@ unsigned int BaseAttack::getPP() const{
 }
 
 void BaseAttack::editedValues(double nv,double na,unsigned int nr, unsigned int npp){
-    this->value = nv;
+    this->setValue(nv);
     this->anim = na;
     this->range = nr;
     this->projectileSpeed = npp;
@@ -79,13 +79,13 @@ Damage* BaseAttack::sum(Damage* d){
     sum->anim = this->getMaxAnim(dp);
 
 
-    if(this->anim == sum->anim){
+    if(this->anim-sum->anim<0.001){
        double value =   dp->DamageByTime(sum->anim);
-       sum->value = this->value + value;
+       sum->setValue(this->getValue() + value);
     }
     else{
         double value = this->DamageByTime(sum->anim);
-        sum->value = value + dp->value;
+        sum->setValue(value + dp->getValue());
 }
     Damage* ret = sum;
 

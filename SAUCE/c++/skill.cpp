@@ -23,7 +23,7 @@ double Skill::DPS(unsigned int distance){
 }
 
 double Skill::DamageByTime(double time,unsigned int distance){
-  return HitByTime(time,distance)*value;
+  return HitByTime(time,distance)*getValue();
 }
 
 unsigned int Skill::HitByTime(double time,unsigned int distance){
@@ -68,7 +68,7 @@ bool Skill::operator==(Skill d) const{
     return this->Sname==d.Sname;
 }
 void Skill::editedValues(double nv,unsigned int nm,unsigned int na,unsigned int nc,unsigned int nr,double np,unsigned int nl){
-    this->value = nv;
+    this->setValue(nv);
     this->manaCost = nm;
     this->animation = na;
     this->cooldown = nc;
@@ -79,7 +79,7 @@ void Skill::editedValues(double nv,unsigned int nm,unsigned int na,unsigned int 
 
 Damage* Skill::sum(Damage * s){
     Skill* sum = new Skill;
-    sum->value = *this + s ;
+    sum->setValue(*this + s) ;
     sum->animation= this->animation + dynamic_cast<Skill*>(s)->animation;
     sum->manaCost = this->manaCost + dynamic_cast<Skill*>(s)->manaCost;
 
