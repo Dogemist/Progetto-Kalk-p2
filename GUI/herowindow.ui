@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>807</width>
     <height>600</height>
    </rect>
   </property>
@@ -433,7 +433,7 @@
    <widget class="QPushButton" name="selectHero2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>580</x>
       <y>420</y>
       <width>201</width>
       <height>25</height>
@@ -486,7 +486,7 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>305</x>
+      <x>310</x>
       <y>439</y>
       <width>161</width>
       <height>20</height>
@@ -507,7 +507,7 @@
    <widget class="QListWidget" name="HList">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>250</x>
       <y>470</y>
       <width>301</width>
       <height>71</height>
@@ -519,7 +519,7 @@
      <rect>
       <x>20</x>
       <y>470</y>
-      <width>80</width>
+      <width>91</width>
       <height>25</height>
      </rect>
     </property>
@@ -532,7 +532,7 @@
      <rect>
       <x>20</x>
       <y>510</y>
-      <width>80</width>
+      <width>91</width>
       <height>25</height>
      </rect>
     </property>
@@ -543,22 +543,22 @@
    <widget class="QPushButton" name="dptH1But">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>120</x>
       <y>470</y>
       <width>111</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Damage per Time</string>
+     <string>Damage by Time</string>
     </property>
    </widget>
    <widget class="QPushButton" name="htpH1But_2">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>570</x>
       <y>510</y>
-      <width>80</width>
+      <width>91</width>
       <height>25</height>
      </rect>
     </property>
@@ -569,22 +569,22 @@
    <widget class="QPushButton" name="dptH2But">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>670</x>
       <y>470</y>
       <width>111</width>
       <height>25</height>
      </rect>
     </property>
     <property name="text">
-     <string>Damage per Time</string>
+     <string>Damage by Time</string>
     </property>
    </widget>
    <widget class="QPushButton" name="dpsH2But">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>570</x>
       <y>470</y>
-      <width>80</width>
+      <width>91</width>
       <height>25</height>
      </rect>
     </property>
@@ -621,7 +621,7 @@
    <widget class="QPushButton" name="powButton1">
     <property name="geometry">
      <rect>
-      <x>110</x>
+      <x>120</x>
       <y>510</y>
       <width>111</width>
       <height>25</height>
@@ -634,7 +634,7 @@
    <widget class="QPushButton" name="powBut2">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>670</x>
       <y>510</y>
       <width>111</width>
       <height>25</height>
@@ -650,7 +650,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>807</width>
      <height>22</height>
     </rect>
    </property>

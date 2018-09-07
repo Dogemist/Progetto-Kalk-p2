@@ -32,7 +32,8 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     hw = new heroWindow();
     suw = new summonedWindow();
 
-
+/*
+ *  VALORI DI DEFAULT, SE VOLETE ABILITARLI BASTA TOGLIERE QUESTO PER INSERIRLI OCCORRE TOGLIERE IL COMMENTO
     savedB.insert(tr("Sword"),BaseAttack(22,1.4,5,4));
     savedB.insert(tr("Axe"),BaseAttack(26,1.7,5,4));
     savedB.insert(tr("Dagger"),BaseAttack(17,1,3,3));
@@ -67,7 +68,7 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     savedSB.insert("Creep","Ruined Sword");
 
     savedSum.insert(tr("Ice Element"),SummonedUnit(savedB.value("Ice Punch"),"Ice Element",330,2));
-    savedSB.insert("Ice Element","Ice Punch");
+    savedSB.insert("Ice Element","Ice Punch");*/
 
 }
 

@@ -4,6 +4,14 @@
 Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsigned int in, unsigned int hp, unsigned int mp, unsigned int arm, unsigned int mr, unsigned int lv):
     BaseAttack(b),Hname(n),str(st),agl(ag),inte(in),bHp(hp),bMp(mp),bArmor(arm),magicResistance(mr),level(lv){}
 
+Hero::~Hero(){
+    std::vector<Skill*>::const_iterator it = skills.begin();
+    for(;it!= skills.end(); it++){
+        delete *it;
+    }
+}
+
+
 unsigned int Hero::getStr()const {return str;}
 unsigned int Hero::getAgl()const {return agl;}
 unsigned int Hero::getInt()const {return inte;}
