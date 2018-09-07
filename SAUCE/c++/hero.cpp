@@ -111,6 +111,10 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             double checkDBT = (*it)->DamageByTime(max);//cerca il DamageByTime della skill puntata da it
             if(checkDBT>maxDmg && (*it)->getReady()&&mana>((*it)->getManaCost()*(*it)->HitByTime(max))){
                 maxDmg=checkDBT;
+                if(d){
+                    Damage*aux=d;
+                    delete aux;
+                }
                 d=*it;
             }
         }
