@@ -89,7 +89,7 @@ public class Hero extends BaseAttack{
             }
         for(int l=0;l<4;l++){
             double checkDBT=skills.get(l).DamageByTime(max,0);
-            if(checkDBT>maxDmg&&skills.get(l).getReady()&&mana>skills.get(l).getManaCost()){
+            if(checkDBT>maxDmg&&skills.get(l).getReady()&&mana>skills.get(l).getManaCost()*skills.get(l).HitByTime(max,0)){
                 maxDmg=checkDBT;
                 d=(skills.get(l));
             }
@@ -102,9 +102,11 @@ public class Hero extends BaseAttack{
         if(((Skill)d).getReady()){
            if(((Skill)d).totalTime(0)*((Skill)d).HitByTime(max,0)<max)
               max=((Skill)d).totalTime(0)*((Skill)d).HitByTime(max,0);
-              mana=mana-((Skill)d).getManaCost();
-              v.add((Skill)d);
-              timing.add(i);
+              mana=mana-((Skill)d).getManaCost()*((Skill)d).HitByTime(max,0);
+              for(int x=0;x<((Skill)d).HitByTime(max,0);x++){
+                v.add((Skill)d);
+                timing.add(i+x*((Skill)d).totalTime(0));
+                }
             }
      }
     else{
@@ -191,6 +193,34 @@ public class Hero extends BaseAttack{
         }
         return 0;
     }
+
+    public LinkedList<Damage> MaxPower(double time,int distance){
+        LinkedList<Damage> t=new LinkedList<Damage>();
+        LinkedList<Damage> res=new LinkedList<Damage>();
+        res.add(new BaseAttack(0,0,0,0));
+        res.add(new BaseAttack(0,0,0,0));
+        t.addAll(skills);
+        t.add((BaseAttack)this);
+        double maxDPS=-1;
+        double maxDBT=-1;
+        for(int l=0;l<t.size();l++){
+            if(t.get(l).DPS(distance)>maxDPS){
+                res.removeFirst();
+                res.addFirst(t.get(l));
+                res.get(0).setValue(t.get(l).DPS(distance));
+                maxDPS=res.get(0).getValue();
+            }
+            if(t.get(l).DamageByTime(time,distance)>maxDBT){
+                res.removeLast();
+                res.addLast(t.get(l));
+                res.get(1).setValue(t.get(l).DamageByTime(time,distance));
+                maxDBT=res.get(1).getValue();
+            }
+         }
+     return res;
+     }
+
+
     public LinkedList<Skill> getSkill(){
         return skills;
     }

@@ -141,6 +141,15 @@ public class Use {
                 System.out.print("Fight tied \n");
             }
 
+        resl=h2.MaxPower(time,distance);
+        if(resl.get(0) instanceof Skill)
+            System.out.print("Il miglior DPS è "+((Skill)resl.get(0)).getName()+" con "+resl.get(0).getValue()+" danni\n");
+        else
+            System.out.print("Il miglior DPS è il BaseAttack con "+resl.get(0).getValue()+" danni\n");
+        if(resl.get(1) instanceof Skill)
+            System.out.print("Il miglior DBT è "+((Skill)resl.get(1)).getName()+" con "+resl.get(1).getValue()+" danni\n");
+        else
+            System.out.print("Il miglior DPS è il BaseAttack con "+resl.get(1).getValue()+" danni\n");
         //OPERAZIONI SUMMONED UNIT
         resb=s1.DPS(distance);
         System.out.print("La Summoned Unit "+s1.getSUMname()+" fa "+resb+" DPS\n");
