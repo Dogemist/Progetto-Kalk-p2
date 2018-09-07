@@ -150,7 +150,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
     return v;
 }
 
-double Hero::MaxDamageByTimeDMG(double time,unsigned int mana){//metodo che calcola i danni masssimi in tot tempo con tot mana
+double Hero::MaxDamageByTimeDMG(double time,unsigned int mana){//metodo che calcola i danni massimi in tot tempo con tot mana
     std::vector<Damage*> v=MaxDamageByTime(time,mana);
     double total=0;
     std::vector<Damage*>::iterator it=v.begin();

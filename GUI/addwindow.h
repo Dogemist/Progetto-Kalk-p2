@@ -10,7 +10,7 @@
 #include <QTextLine>
 #include <QValidator>
 
-#include <SAUCE/c++/baseattack.h>
+#include <SOURCE/c++/baseattack.h>
 
 
 class addWindow : public QDialog
