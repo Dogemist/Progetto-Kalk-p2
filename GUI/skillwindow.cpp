@@ -152,7 +152,7 @@ void skillWindow::addClicked(){
             displayS->setText(tr("Skill \"%1\" added! ").arg(nameTmp));
        }
        else
-           QMessageBox::information(this, tr("Error"),tr("%1 is in the list").arg(nameTmp));
+           QMessageBox::information(this, tr("Warning"),tr("%1 is in the list").arg(nameTmp));
     }
     return;
 }
@@ -179,7 +179,7 @@ void skillWindow::deleteClicked(){
             return;
         }
         else{
-            QMessageBox::information(this, tr("Error"),tr("%1 isn't store in the kalk").arg(dw->getDelText()));
+            QMessageBox::information(this, tr("Warning"),tr("%1 isn't store in the kalk").arg(dw->getDelText()));
             return;
         }
     }
@@ -188,7 +188,7 @@ void skillWindow::deleteClicked(){
 void skillWindow::editClicked(){
 
     if(s == defS){
-        QMessageBox::information(this,tr("Error"), tr("You are trying to edit the nothing"));
+        QMessageBox::information(this,tr("Warning"), tr("You are trying to edit the nothing"));
         return;
     }
 
@@ -295,7 +295,7 @@ void skillWindow::diffClicked(){
 
 bool skillWindow::firstCheck(){
     if(s.getValue()<0){
-        QMessageBox::information(this,tr("Error"),tr("Select or create a skill"));
+        QMessageBox::information(this,tr("Warning"),tr("Select or create a skill"));
         return false;
     }
     else

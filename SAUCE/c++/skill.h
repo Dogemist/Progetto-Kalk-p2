@@ -16,7 +16,7 @@ private:
     double animation;
 public:
  Skill(double v=1, QString n="empty",unsigned int m=100, double an=1, unsigned int cd=1,unsigned int r=1, double ps=1,unsigned int lv=0, bool re=true);
-   ~Skill() = default;
+ ~Skill() = default;
    bool Heal();
    bool IsCastable(double time, unsigned int distance=0);
    bool IsCastable(double time, unsigned int distance,unsigned int mana);

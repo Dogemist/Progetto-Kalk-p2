@@ -5,7 +5,7 @@ Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsi
     BaseAttack(b),Hname(n),str(st),agl(ag),inte(in),bHp(hp),bMp(mp),bArmor(arm),magicResistance(mr),level(lv){}
 
 Hero::~Hero(){
-    std::vector<Skill*>::const_iterator it = skills.begin();
+   std::vector<Skill*>::const_iterator it = skills.begin();
     for(;it!= skills.end(); it++){
         delete *it;
     }

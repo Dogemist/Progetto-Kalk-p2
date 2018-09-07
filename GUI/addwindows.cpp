@@ -74,7 +74,7 @@ addWindowS::addWindowS(QDialog *parent) : QDialog(parent)
 void addWindowS::addClicked(){
     if(nameLineS->text() == "" || dannoLineS->text() == "" || manaLine->text()== "" || animationLineS->text() == ""
             || cooldownLine->text() == "" || rangeLineS->text() == "" || projLineS->text() == "" || levelLine->text() == ""){
-        QMessageBox::information(this,tr("Error"),tr("All fields need to be filled"));
+        QMessageBox::information(this,tr("Warning"),tr("All fields need to be filled"));
         return;
     }
     else{
@@ -91,7 +91,7 @@ void addWindowS::addClicked(){
         if(projText > 0.001 )
             accept();
         else{
-            QMessageBox::information(this,tr("Error"),tr("Projectile Speed must be > 0"));
+            QMessageBox::information(this,tr("Warning"),tr("Projectile Speed must be > 0"));
             return;
         }
         if(levelText == 0)

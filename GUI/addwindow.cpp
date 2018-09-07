@@ -56,7 +56,7 @@ void addWindow::addClicked(){
 
     if(nameLine->text() == ""  || dannoLine->text() == "" || animationLine->text() == "" ||
             rangeLine->text() == "" || projLine->text() == ""){
-        QMessageBox::information(this,tr("Error"),tr("All fields need to be filled")); //messaggio di errore
+        QMessageBox::information(this,tr("Warning"),tr("All fields need to be filled")); //messaggio di errore
         return;
     }
     else{

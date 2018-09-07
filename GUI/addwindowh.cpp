@@ -45,8 +45,9 @@ void addWindowH::on_confirmButton_clicked()
 {
    if(ui->nameLine->text() == "" || ui->strBox->text() == "" ||  ui->aglBox->text()== "" || ui->intBox->text() == ""
             || ui->hpBox->text() == "" || ui->mpBox->text() == "" || ui->levBox->text() == "" || ui->phyBox->text() == ""
-           || ui->magBox->text() == ""){
-        QMessageBox::information(this,tr("Error"),tr("All fields need to be filled"));
+           || ui->magBox->text() == "" || ui->baseAttackBox->currentText() =="" || ui->skill1Box->currentText()==""|| ui->skill2Box->currentText()==""
+           || ui->skill3Box->currentText()==""|| ui->skill4Box->currentText()==""){
+        QMessageBox::information(this,tr("Warning"),tr("All fields need to be filled"));
         return;
     }
    else{

@@ -50,7 +50,7 @@ addWindowSum::~addWindowSum()
 
 void addWindowSum::onAddClicked(){
     if(nameLine->text() == "" || hpLine->text() == "" || levelLine->text() == "" ){
-        QMessageBox::information(this,tr("Error"),tr("All fields must be filled"));
+        QMessageBox::information(this,tr("Warning"),tr("All fields must be filled"));
         return;
     }
 
@@ -59,9 +59,13 @@ void addWindowSum::onAddClicked(){
     hp = hpLine->text().toInt();
     lv = levelLine->text().toInt();
     ba = baseAttackBox->currentText();
-    if(hp == 0 || lv == 0){
-        QMessageBox::information(this,tr("Error"),tr("all this fields must be > 0"));
+    if(hp == 0 || lv == 0 ){
+        QMessageBox::information(this,tr("Warning"),tr("all this fields must be > 0"));
         return;
+    }
+    else if(baseAttackBox->currentText()== ""){
+         QMessageBox::information(this,tr("Warning"),tr("You haven't select any BaseAttack"));
+         return;
     }
     else
         accept();

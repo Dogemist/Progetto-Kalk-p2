@@ -55,7 +55,7 @@ void summonedWindow::on_addButton_clicked()
          ui->displayRes->setText(tr("%1 unit added!").arg(nameT));
          }
          else
-            QMessageBox::information(this,tr("Error"),tr("%1 is in the list").arg(nameT));
+            QMessageBox::information(this,tr("Warning"),tr("%1 is in the list").arg(nameT));
 
 }
      delete auw;
@@ -91,7 +91,7 @@ void summonedWindow::on_select2Button_clicked()
 void summonedWindow::on_editButton_clicked()
 {
     if(su == def){
-        QMessageBox::information(this,tr("Error"), tr("You are trying to edit the nothing"));
+        QMessageBox::information(this,tr("Warning"), tr("You are trying to edit the nothing"));
         return;
     }
     addWindowSum* euw = new addWindowSum;
@@ -150,7 +150,7 @@ void summonedWindow::on_removeButton_clicked()
            return;
        }
        else{   //messaggio di errore, stai eliminando un valore che non esiste
-           QMessageBox::information(this, tr("Error"),tr("%1 isn't store in the kalk").arg(dw->getDelText()));
+           QMessageBox::information(this, tr("Warning"),tr("%1 isn't store in the kalk").arg(dw->getDelText()));
            return;
        }
     }
@@ -249,15 +249,15 @@ void summonedWindow::on_clearButton_clicked()
 
 bool summonedWindow::firstCheck(char controll){
     if(controll == 'f' && selected1 == def){
-             QMessageBox::information(this,tr("Error"),tr("Select or create an unit"));
+             QMessageBox::information(this,tr("Warning"),tr("Select or create an unit"));
              return false;
         }
     else if(controll == 's' && selected2 == def){
-            QMessageBox::information(this,tr("Error"),tr("Select or create an unit"));
+            QMessageBox::information(this,tr("Warning"),tr("Select or create an unit"));
             return false;
         }
     else if(controll == 'c' && su == def){
-        QMessageBox::information(this,tr("Error"),tr("You haven't select any unit"));
+        QMessageBox::information(this,tr("Warning"),tr("You haven't select any unit"));
         return false;
         }
      else

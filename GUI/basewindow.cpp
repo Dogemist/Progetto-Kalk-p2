@@ -186,7 +186,7 @@ void baseWindow::deleteClicked(){
             return;
         }
         else{   //messaggio di errore, stai eliminando un valore che non esiste
-            QMessageBox::information(this, tr("Error"),tr("%1 isn't store in the kalk").arg(dw->getDelText()));
+            QMessageBox::information(this, tr("Warning"),tr("%1 isn't store in the kalk").arg(dw->getDelText()));
             return;
         }
     }
@@ -196,7 +196,7 @@ void baseWindow::deleteClicked(){
 
 void baseWindow::editClicked(){
     if(ba == def){
-        QMessageBox::information(this,tr("Error"),tr("You are trying to edit the nothing"));
+        QMessageBox::information(this,tr("Warning"),tr("You are trying to edit the nothing"));
         return;
     }
    addWindow* ew = new addWindow;
@@ -277,7 +277,7 @@ if (firstCheck()){
 
         Damage* val = ba.sum(&sup);//eseguo il calcolo
         BaseAttack* res = dynamic_cast<BaseAttack*>(val);
-        QString disp = "I due BaseAttack fanno " + QString::number(res->getValue()) + " Danno in " + QString::number(res->getAnim()) + " secondi";
+        QString disp = "Those BaseAttacks done " + QString::number(res->getValue()) + " damage in " + QString::number(res->getAnim()) + " seconds";
         BdisplayRes->setText(disp);//mostro il risultato
         res = 0;                     //importo res a 0
         waitForOperand = false;
@@ -296,7 +296,7 @@ void baseWindow::diffClicked(){
     else
     {
         double res = sup - &ba;
-        QString disp = "la somma dei due BaseAttack è: " + QString::number(res);
+        QString disp = "The difference between those BaseAttacks is: " + QString::number(res);
         BdisplayRes->setText(disp);
         res = 0;
         waitForOperand = false;
@@ -308,7 +308,7 @@ void baseWindow::diffClicked(){
 
 bool baseWindow::firstCheck(){
     if(ba == def){
-        QMessageBox::information(this,tr("Error"),tr("You haven't select any BaseAttack"));
+        QMessageBox::information(this,tr("Warning"),tr("You haven't select any BaseAttack"));
         return false;
     }
     else

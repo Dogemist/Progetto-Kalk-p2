@@ -26,7 +26,7 @@ void deleteWindow::delRClicked(){
     QString text = delLine->text();
 
     if(text.isEmpty()){
-        QMessageBox::information(this, tr("Error"), tr("Insert a name if you want delete it"));
+        QMessageBox::information(this, tr("Warning"), tr("Insert a name if you want delete it"));
         return;
     }
     else{
