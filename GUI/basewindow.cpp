@@ -277,10 +277,11 @@ if (firstCheck()){
 
         Damage* val = ba.sum(&sup);//eseguo il calcolo
         BaseAttack* res = dynamic_cast<BaseAttack*>(val);
-        delete val;
+
         QString disp = "Those BaseAttacks done " + QString::number(res->getValue()) + " damage in " + QString::number(res->getAnim()) + " seconds";
         BdisplayRes->setText(disp);//mostro il risultato
         res = 0;                     //importo res a 0
+        delete val;
         waitForOperand = false;
     }
   }

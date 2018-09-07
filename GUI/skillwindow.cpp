@@ -269,6 +269,7 @@ void skillWindow::sumClicked(){
         QString disp = "The damage of those skill are " + QString::number(res->getValue()) + " casted in " + QString::number(res->getAnimation()) + " second and cost " + QString::number(res->getManaCost()) + " mana";
         SdisplayRes->setText(disp);
         res = 0;
+        delete val;
         waitForOperand = false;
     }
 }
