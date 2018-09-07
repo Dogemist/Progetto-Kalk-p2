@@ -133,15 +133,15 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             }
         }else{
             if(dynamic_cast<BaseAttack*>(d)){
-                if(d)
                     if(BaseAttack::getAnim()*BaseAttack::HitByTime(max)<max)
                         max=BaseAttack::getAnim()*BaseAttack::HitByTime(max);
                 for(unsigned int l=0;l<BaseAttack::HitByTime(max);l++){//inserisco un attacco base per ogni volta che l'ho usato
-                    v.push_back(d);
+                    v.push_back(new BaseAttack(*this));
                     timing.push_back(i+l*BaseAttack::getAnim());
                 }
             }
         }
+        delete d;
         if(max>0)
             max=max-0.2;//tolgo il tempo del tick corrente dall'animazione dell'azione
         i=i+max;//aggiungo il tempo per fare l'azione intrapresa
