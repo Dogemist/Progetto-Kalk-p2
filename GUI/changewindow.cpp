@@ -27,11 +27,11 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     setWindowTitle("Change Kalk");
 
 
-    bw = new baseWindow();
+    /*bw = new baseWindow();
     sw = new skillWindow();
     hw = new heroWindow();
     suw = new summonedWindow();
-
+*/
 
   //VALORI DI DEFAULT, SE VOLETE ABILITARLI BASTA TOGLIERE QUESTO PER INSERIRLI OCCORRE TOGLIERE IL COMMENTO
     savedB.insert(tr("Sword"),BaseAttack(22,1.4,5,4));
@@ -73,7 +73,7 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
 }
 
 void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KALK
-
+    baseWindow* bw = new baseWindow;
     bw->show();                 //mostro la finestra creata col costruttore
     bw->storedBA = savedB;      //Gli passo le QMap dove stored e' quella che verrà utilizzata
     bw->salvS = savedS;         //mentre saved* è quella di passaggio delle altre kalk
@@ -89,9 +89,9 @@ void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KA
 
     savedB.clear();
 
-    hw->deleteLater();
+    /*hw->deleteLater();
     suw->deleteLater();
-    sw->deleteLater();
+    sw->deleteLater();*/
     bw->setAcceptDrops(Qt::WA_DeleteOnClose);
     close();                //chiusura della change kalk
 
@@ -99,7 +99,7 @@ void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KA
 
 
 void changeWindow::openSkill(){
-
+    skillWindow* sw = new skillWindow;
     sw->show();
     sw->storedS = savedS;
     sw->salvSum = savedSum;
@@ -114,9 +114,9 @@ void changeWindow::openSkill(){
 
     savedS.clear();
 
-    hw->deleteLater();
+    /*hw->deleteLater();
     suw->deleteLater();
-    bw->deleteLater();
+    bw->deleteLater();*/
     sw->setAcceptDrops(Qt::WA_DeleteOnClose);
     close();
     return;
@@ -124,7 +124,7 @@ void changeWindow::openSkill(){
 
 
 void changeWindow::openHero(){
-
+    heroWindow* hw = new heroWindow;
          hw->show();
 
          hw->salvBA = savedB;
@@ -138,15 +138,16 @@ void changeWindow::openHero(){
          hw->salvS.detach();
          hw->salvSB.detach();
 
-         sw->deleteLater();
+         /*sw->deleteLater();
          bw->deleteLater();
-         suw->deleteLater();
+         suw->deleteLater();*/
          hw->setAttribute(Qt::WA_DeleteOnClose);
          close();
      }
 
 
 void changeWindow::openSummon(){
+    summonedWindow* suw = new summonedWindow;
     suw->show();
     suw->storedSummoned = savedSum;
     suw->storedSB = savedSB;
@@ -158,9 +159,9 @@ void changeWindow::openSummon(){
     suw->passedBA.detach();
     suw->storedSB.detach();
 
-    sw->deleteLater();
+    /*sw->deleteLater();
     bw->deleteLater();
-    hw->deleteLater();
+    hw->deleteLater();*/
     suw->setAttribute(Qt::WA_DeleteOnClose);
 
     close();

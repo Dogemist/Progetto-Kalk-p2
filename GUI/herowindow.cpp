@@ -177,7 +177,7 @@ void heroWindow::on_editButton_clicked()
         Hspell[name] = temp;            //alla QMap per salvare le spell, seleziono la stringa modificata e gli metto il vettore nuovo
         storedHeroes[name]=h;           //alla QMap per salvare gli eroi, seleziono la stringa modificata e gli metto il valore nuovo
     }
-
+    delete eh;
  }
 
 void heroWindow::on_selectHero1_clicked()   //assegni alle LineEdit le stringhe dell'hero h

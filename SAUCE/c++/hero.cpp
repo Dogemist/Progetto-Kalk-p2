@@ -29,7 +29,6 @@ Hero::Hero(const Hero& h):BaseAttack(static_cast<BaseAttack>(h)){
     }
 }*/
 
-
 unsigned int Hero::getStr()const {return str;}
 unsigned int Hero::getAgl()const {return agl;}
 unsigned int Hero::getInt()const {return inte;}
