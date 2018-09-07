@@ -10,7 +10,7 @@ private:
 public:
 
    Damage(double d): value(d){}
-   virtual ~Damage() =0;
+   virtual ~Damage()=default;
    double getValue() const;
    void setValue(double d);
 

@@ -66,8 +66,7 @@ void addWindowH::on_confirmButton_clicked()
         heroS3 = ui->skill3Box->currentText();
         heroS4 = ui->skill4Box->currentText();
 
-        tmp = Hero(showedBA.value(heroBA),heroName,heroStr,heroAgl,heroInt,heroBaseHP,heroBaseMP,heroBaseArmor,heroMagRes,heroLevel);
-
+        tmp=Hero(showedBA.value(heroBA),heroName,heroStr,heroAgl,heroInt,heroBaseHP,heroBaseMP,heroBaseArmor,heroMagRes,heroLevel);
         accept();
 
    }

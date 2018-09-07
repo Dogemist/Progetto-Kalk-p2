@@ -4,12 +4,30 @@
 Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsigned int in, unsigned int hp, unsigned int mp, unsigned int arm, unsigned int mr, unsigned int lv):
     BaseAttack(b),Hname(n),str(st),agl(ag),inte(in),bHp(hp),bMp(mp),bArmor(arm),magicResistance(mr),level(lv){}
 
-Hero::~Hero(){
-   std::vector<Skill*>::const_iterator it = skills.begin();
-    for(;it!= skills.end(); it++){
-        delete *it;
-    }
+Hero::Hero(const Hero& h):BaseAttack(static_cast<BaseAttack>(h)){
+//    BaseAttack(static_cast<BaseAttack>(h));
+    Hname=h.Hname;
+    str=h.str;
+    agl=h.agl;
+    inte=h.inte;
+    bHp=h.bHp;
+    bArmor=h.bArmor;
+    magicResistance=h.magicResistance;
+    level=h.level;
+    if(h.skills.size()>0)
+      for(unsigned int i=0;i<skills.size();i++)
+        skills.push_back(new Skill(h.getSkill(i)));
 }
+
+/*Hero::~Hero(){
+    std::vector<Skill*>::const_iterator it = skills.begin();
+    Skill* aux;
+    for(;it!= skills.end(); it++){
+        aux=(*it);
+        delete  aux;
+        skills.erase(skills.begin());
+    }
+}*/
 
 
 unsigned int Hero::getStr()const {return str;}
@@ -198,8 +216,8 @@ char Hero::Fight(Hero* h){
 std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
     std::vector<Damage*> t;
     std::vector<Damage*> result;
-    Damage* DPS=new BaseAttack;
-    Damage* DBT=new BaseAttack;
+    Damage* DPS=nullptr;
+    Damage* DBT=nullptr;
     t.insert(t.end(),skills.begin(),skills.end());
     t.push_back(dynamic_cast<BaseAttack*>(this));
     std::vector<Damage*>::iterator it=t.begin();
@@ -208,17 +226,37 @@ std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
     for(;it!=t.end();it++){
         if((*it)->DPS(distance)>maxDPS){
             maxDPS=(*it)->DPS(distance);
-            if(dynamic_cast<Skill*>(*it))
+            if(dynamic_cast<Skill*>(*it)){
+                if(DPS){
+                    Damage* aux=DPS;
+                    delete aux;
+                }
                 DPS=new Skill(*(dynamic_cast<Skill*>(*it)));
-            else
+            }
+            else{
+                if(DPS){
+                    Damage* aux=DPS;
+                    delete aux;
+                }
                 DPS=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
+            }
         }
         if((*it)->DamageByTime(time,distance)>maxDBT){
             maxDBT=(*it)->DamageByTime(time,distance);
-            if(dynamic_cast<Skill*>(*it))
+            if(dynamic_cast<Skill*>(*it)){
+                if(DBT){
+                    Damage* aux=DBT;
+                    delete aux;
+                }
                 DBT=new Skill(*(dynamic_cast<Skill*>(*it)));
-            else
+            }
+            else{
+                if(DBT){
+                    Damage* aux=DBT;
+                    delete aux;
+                }
                 DBT=new BaseAttack(*(dynamic_cast<BaseAttack*>(*it)));
+            }
         }
     }
 
@@ -238,13 +276,11 @@ std::vector<Damage*> Hero::MaxPower(double time,unsigned int distance){
 }
 
 
-Hero Hero::InsertSKill(Skill* sk ){
+void Hero::InsertSKill(Skill* sk ){
     if(skills.size()==4){
-    return *this;
     }
     else{
         skills.push_back(sk);
-        return *this;
     }
 }
 
