@@ -105,7 +105,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
                 Damage*aux=d;
                 delete aux;
             }
-            d = new BaseAttack(*const_cast<BaseAttack*>(static_cast<BaseAttack*>(this)));
+            d = new BaseAttack(*this);
         }
         for(it=skills.begin(); it!=skills.end(); it++){    //FOR PER L'ATTACCO + FORTE
             double checkDBT = (*it)->DamageByTime(max);//cerca il DamageByTime della skill puntata da it
@@ -133,7 +133,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             }
         }else{
             if(dynamic_cast<BaseAttack*>(d)){
-                if(d->getValue()>0)
+                if(d)
                     if(BaseAttack::getAnim()*BaseAttack::HitByTime(max)<max)
                         max=BaseAttack::getAnim()*BaseAttack::HitByTime(max);
                 for(unsigned int l=0;l<BaseAttack::HitByTime(max);l++){//inserisco un attacco base per ogni volta che l'ho usato
