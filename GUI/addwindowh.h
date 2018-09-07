@@ -12,7 +12,7 @@ class addWindowH;
 
 class addWindowH : public QDialog
 {
-   //friend class baseWindow;
+
    Q_OBJECT
 
 public:

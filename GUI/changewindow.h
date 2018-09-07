@@ -39,10 +39,6 @@ private:
    QPushButton* heroKalk;
    QPushButton* summonKalk;
    QPushButton* skillKalk;
-   /*summonedWindow* suw;
-   baseWindow* bw;
-   skillWindow* sw;
-   heroWindow* hw;
-*/};
+  };
 
 #endif // CHANGEWINDOW_H

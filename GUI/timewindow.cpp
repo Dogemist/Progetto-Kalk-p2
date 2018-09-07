@@ -22,8 +22,8 @@ timeWindow::timeWindow(QDialog *parent) : QDialog(parent)
 }
 
 void timeWindow::timeClicked(){
-    timeText=timeLine->text();      //Stesso procedimento degli altri, gli assegno il valore e poi la funzione
-    accept();                      //se lo tira via con il get
+    timeText=timeLine->text();
+    accept();
 }
 
 QString timeWindow::getTime(){return timeText;}

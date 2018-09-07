@@ -108,7 +108,6 @@ void addWindowH::setValues(Hero h) const{
 
 }
 
-//IDEA: Possibile evitare il tutto ritornando un hero già impostato senza dover fare millemila get
 
 Hero addWindowH::getHero() const{ return tmp;}
 QString addWindowH::getHeroBA() const{ return heroBA;}

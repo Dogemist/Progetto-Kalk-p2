@@ -27,12 +27,8 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     setWindowTitle("Change Kalk");
 
 
-    /*bw = new baseWindow();
-    sw = new skillWindow();
-    hw = new heroWindow();
-    suw = new summonedWindow();
-*/
 
+/*
   //VALORI DI DEFAULT, SE VOLETE ABILITARLI BASTA TOGLIERE QUESTO PER INSERIRLI OCCORRE TOGLIERE IL COMMENTO
     savedB.insert(tr("Sword"),BaseAttack(22,1.4,5,4));
     savedB.insert(tr("Axe"),BaseAttack(26,1.7,5,4));
@@ -69,7 +65,7 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
 
     savedSum.insert(tr("Ice Element"),SummonedUnit(savedB.value("Ice Punch"),"Ice Element",330,2));
     savedSB.insert("Ice Element","Ice Punch");
-
+*/
 
 
 }
@@ -93,9 +89,6 @@ void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KA
 
     savedB.clear();
 
-    /*hw->deleteLater();
-    suw->deleteLater();
-    sw->deleteLater();*/
     bw->setAcceptDrops(Qt::WA_DeleteOnClose);
     close();                //chiusura della change kalk
 
@@ -118,9 +111,6 @@ void changeWindow::openSkill(){
 
     savedS.clear();
 
-    /*hw->deleteLater();
-    suw->deleteLater();
-    bw->deleteLater();*/
     sw->setAcceptDrops(Qt::WA_DeleteOnClose);
     close();
 
@@ -142,9 +132,6 @@ void changeWindow::openHero(){
          hw->salvS.detach();
          hw->salvSB.detach();
 
-         /*sw->deleteLater();
-         bw->deleteLater();
-         suw->deleteLater();*/
          hw->setAttribute(Qt::WA_DeleteOnClose);
          close();
 
@@ -164,9 +151,6 @@ void changeWindow::openSummon(){
     suw->passedBA.detach();
     suw->storedSB.detach();
 
-    /*sw->deleteLater();
-    bw->deleteLater();
-    hw->deleteLater();*/
     suw->setAttribute(Qt::WA_DeleteOnClose);
     close();
 

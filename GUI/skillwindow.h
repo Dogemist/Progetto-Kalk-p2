@@ -62,9 +62,9 @@ private:
     QLineEdit* displayS;
     QString name;
     Skill defS;
-    Skill s;                //skill principale
-    Skill sup;              //skill di supporto
-    bool waitForOperand;    //bool di supporto per op binarie
+    Skill s;
+    Skill sup;
+    bool waitForOperand;
 
     Mode addOedit;
 };

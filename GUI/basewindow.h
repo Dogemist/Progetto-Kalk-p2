@@ -27,8 +27,8 @@ public:
     void insertInBList();
     QListWidget* Blist;
     QMap<QString,BaseAttack> storedBA;
-    QMap<QString,Skill> salvS;            //mi tocca portarla qua altrimenti se fai
-    QMap<QString,SummonedUnit> salvSum;   //skill->change->base->change->skill la lista viene persa
+    QMap<QString,Skill> salvS;
+    QMap<QString,SummonedUnit> salvSum;
     QMap<QString,QString> salvSB;
 public slots:
 
@@ -61,10 +61,10 @@ private:
     QPushButton* BeditButton;
     QLineEdit* displayBA;
     QString name;
-    BaseAttack ba;          //BaseAttack principale
-    BaseAttack sup;         //supporto per operazioni binarie
+    BaseAttack ba;
+    BaseAttack sup;
     BaseAttack def;
-    bool waitForOperand;    //supporto per operazioni binarie
+    bool waitForOperand;
     bool check;
 };
 
