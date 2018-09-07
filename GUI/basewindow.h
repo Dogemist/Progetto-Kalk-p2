@@ -9,7 +9,7 @@
 #include <QTextEdit>
 #include <QListWidget>
 #include <QPushButton>
-#include <SAUCE/c++/baseattack.h>
+#include <SOURCE/c++/baseattack.h>
 #include "timewindow.h"
 #include "addwindow.h"
 #include "deletewindow.h"

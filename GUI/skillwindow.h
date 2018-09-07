@@ -9,7 +9,7 @@
 #include <QTextEdit>
 #include <QListWidget>
 #include <QPushButton>
-#include <SAUCE/c++/skill.h>
+#include <SOURCE/c++/skill.h>
 #include "addwindows.h"
 #include "deletewindow.h"
 #include "changewindow.h"

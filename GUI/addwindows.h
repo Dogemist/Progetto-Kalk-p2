@@ -10,7 +10,7 @@
 #include <QPushButton>
 #include <QTextLine>
 #include <QValidator>
-#include <SAUCE/c++/skill.h>
+#include <SOURCE/c++/skill.h>
 
 
 class addWindowS : public QDialog

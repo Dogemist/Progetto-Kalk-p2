@@ -34,14 +34,14 @@ SOURCES += \
     GUI/skillwindow.cpp \
     GUI/summonedwindow.cpp \
     GUI/timewindow.cpp \
-    SAUCE/c++/baseattack.cpp \
-    SAUCE/c++/damage.cpp \
-    SAUCE/c++/hero.cpp \
-    SAUCE/c++/main.cpp \
-    SAUCE/c++/mdamage.cpp \
-    SAUCE/c++/pdamage.cpp \
-    SAUCE/c++/skill.cpp \
-    SAUCE/c++/summonedunit.cpp
+    SOURCE/c++/baseattack.cpp \
+    SOURCE/c++/damage.cpp \
+    SOURCE/c++/hero.cpp \
+    SOURCE/c++/main.cpp \
+    SOURCE/c++/mdamage.cpp \
+    SOURCE/c++/pdamage.cpp \
+    SOURCE/c++/skill.cpp \
+    SOURCE/c++/summonedunit.cpp
 
 HEADERS += \
     GUI/addwindow.h \
@@ -55,13 +55,13 @@ HEADERS += \
     GUI/skillwindow.h \
     GUI/summonedwindow.h \
     GUI/timewindow.h \
-    SAUCE/c++/baseattack.h \
-    SAUCE/c++/damage.h \
-    SAUCE/c++/hero.h \
-    SAUCE/c++/mdamage.h \
-    SAUCE/c++/pdamage.h \
-    SAUCE/c++/skill.h \
-    SAUCE/c++/summonedunit.h
+    SOURCE/c++/baseattack.h \
+    SOURCE/c++/damage.h \
+    SOURCE/c++/hero.h \
+    SOURCE/c++/mdamage.h \
+    SOURCE/c++/pdamage.h \
+    SOURCE/c++/skill.h \
+    SOURCE/c++/summonedunit.h
 
 FORMS += \
     GUI/addwindowh.ui \
