@@ -367,7 +367,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>DamageByTime</string>
+     <string>Damage By Time</string>
     </property>
    </widget>
    <widget class="QPushButton" name="dbtButton2">
@@ -380,7 +380,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>DamageByTime</string>
+     <string>Damage By Time</string>
     </property>
    </widget>
   </widget>

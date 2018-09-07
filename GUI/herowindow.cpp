@@ -1,6 +1,6 @@
 #include "herowindow.h"
 #include "ui_herowindow.h"
-#include <vector>
+
 
 heroWindow::heroWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -412,9 +412,9 @@ void heroWindow::on_powButton1_clicked()
 
            it++;
            if(dynamic_cast<BaseAttack*>(*it))
-               res2 = " il miglior DPT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
+               res2 = " il miglior DBT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
            else
-               res2 = tr(" il miglior DPT è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[1]->getValue());
+               res2 = tr(" il miglior DBT è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[1]->getValue());
 
 
            QString fres = res1+res2;
@@ -423,7 +423,6 @@ void heroWindow::on_powButton1_clicked()
         }
     }
 }
-
 
            /* QVector<>ritorno = selected1.nomeMetodo(time) richiamo metodo con time
             * QVectorIterator<>it (ritorno)
@@ -454,9 +453,9 @@ void heroWindow::on_powBut2_clicked()
                   res1 = tr("Il miglior DPS è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[0]->getValue()) + " danni e";
 
            if(dynamic_cast<BaseAttack*>(*it))
-               res2 = " il miglior DPT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
+               res2 = " il miglior DBT è un BaseAttack con " + QString::number(ritorno[1]->getValue());
            else
-               res2 = tr(" il miglior DPT è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[1]->getValue());
+               res2 = tr(" il miglior DBT è %1 con ").arg(dynamic_cast<Skill*>(*it)->getName()) + QString::number(ritorno[1]->getValue());
 
            QString fres = res1+res2;
            ui->displayRes->setText(fres);
