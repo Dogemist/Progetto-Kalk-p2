@@ -25,7 +25,7 @@ public:
 
   Hero(const BaseAttack b=0, QString n="NO_H_NAME", unsigned int st=0, unsigned int ag=0, unsigned int in=0, unsigned int hp=0, unsigned int mp=0, unsigned int arm=0, unsigned int mr=0, unsigned int lv=0);
   Hero(double v, double an, unsigned int rg, unsigned int tt, QString n, unsigned int st, unsigned int ag, unsigned int in, unsigned int hp, unsigned int mp, unsigned int arm, unsigned int mr, unsigned int lv, double ma, double pa);
-  Hero(const Hero& h);
+  //Hero(const Hero& h);
   //~Hero();
   void InsertSKill(Skill* sk);
   void resetSkill();

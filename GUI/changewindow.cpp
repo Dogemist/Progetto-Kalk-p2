@@ -70,9 +70,13 @@ changeWindow::changeWindow(QWidget *parent) : QWidget(parent)
     savedSum.insert(tr("Ice Element"),SummonedUnit(savedB.value("Ice Punch"),"Ice Element",330,2));
     savedSB.insert("Ice Element","Ice Punch");
 
+
+
 }
 
+
 void changeWindow::openBase(){ //LO STESSO PROCEDIMENTO VA ANCHE PER LE ALTRE KALK
+
     baseWindow* bw = new baseWindow;
     bw->show();                 //mostro la finestra creata col costruttore
     bw->storedBA = savedB;      //Gli passo le QMap dove stored e' quella che verrà utilizzata
@@ -119,7 +123,7 @@ void changeWindow::openSkill(){
     bw->deleteLater();*/
     sw->setAcceptDrops(Qt::WA_DeleteOnClose);
     close();
-    return;
+
 }
 
 
@@ -143,6 +147,7 @@ void changeWindow::openHero(){
          suw->deleteLater();*/
          hw->setAttribute(Qt::WA_DeleteOnClose);
          close();
+
      }
 
 
@@ -163,7 +168,6 @@ void changeWindow::openSummon(){
     bw->deleteLater();
     hw->deleteLater();*/
     suw->setAttribute(Qt::WA_DeleteOnClose);
-
     close();
 
 }

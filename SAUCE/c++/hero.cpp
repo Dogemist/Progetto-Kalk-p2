@@ -4,7 +4,7 @@
 Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsigned int in, unsigned int hp, unsigned int mp, unsigned int arm, unsigned int mr, unsigned int lv):
     BaseAttack(b),Hname(n),str(st),agl(ag),inte(in),bHp(hp),bMp(mp),bArmor(arm),magicResistance(mr),level(lv){}
 
-Hero::Hero(const Hero& h):BaseAttack(static_cast<BaseAttack>(h)){
+/*Hero::Hero(const Hero& h):BaseAttack(static_cast<BaseAttack>(h)){
 //    BaseAttack(static_cast<BaseAttack>(h));
     Hname=h.Hname;
     str=h.str;
@@ -17,7 +17,7 @@ Hero::Hero(const Hero& h):BaseAttack(static_cast<BaseAttack>(h)){
     if(h.skills.size()>0)
       for(unsigned int i=0;i<skills.size();i++)
         skills.push_back(new Skill(h.getSkill(i)));
-}
+}*/
 
 /*Hero::~Hero(){
     std::vector<Skill*>::const_iterator it = skills.begin();
@@ -86,7 +86,8 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             index++;
         }
         max=0;//animazione massima inizializzata/resettata a 0
-        Damage* d=new BaseAttack();
+        // Damage* d =new BaseAttack();
+        Damage* d = nullptr;
         it = skills.begin();
         for(; it!=skills.end(); it++){    //FOR PER L'ANIMAZIONE + LUNGA
            if((*it)->getAnimation()>max &&  (*it)->IsCastable(time-i))    //animazione skill
@@ -100,6 +101,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             maxDmg=BaseAttack::DamageByTime(max);//setto a maxdmg il danno del base attack
         }
         if(maxDmg>0){
+
             d = new BaseAttack(BaseAttack::getValue());
         }
         for(it=skills.begin(); it!=skills.end(); it++){    //FOR PER L'ATTACCO + FORTE
@@ -167,7 +169,7 @@ char Hero::Fight(Hero* h){
     std::vector<Damage*>::iterator xi;
     std::vector<Damage*>::iterator yi;
     for(double i=0.2;m1+m2>0&&check;i+=0.2){
-        x=MaxDamageByTime(i,mp1);
+        x = MaxDamageByTime(i,mp1);
         y=h->MaxDamageByTime(i,mp2);
         dmg1=0;
         dmg2=0;
