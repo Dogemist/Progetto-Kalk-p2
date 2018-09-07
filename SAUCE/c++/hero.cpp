@@ -19,7 +19,7 @@ Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsi
         skills.push_back(new Skill(h.getSkill(i)));
 }*/
 
-Hero::~Hero(){
+/*Hero::~Hero(){
     std::vector<Skill*>::const_iterator it = skills.begin();
     Skill* aux;
     for(;it!= skills.end(); it++){
@@ -101,7 +101,10 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             maxDmg=BaseAttack::DamageByTime(max);//setto a maxdmg il danno del base attack
         }
         if(maxDmg>0){
-
+            if(d){
+                Damage*aux=d;
+                delete aux;
+            }
             d = new BaseAttack(BaseAttack::getValue());
         }
         for(it=skills.begin(); it!=skills.end(); it++){    //FOR PER L'ATTACCO + FORTE
