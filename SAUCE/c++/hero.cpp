@@ -68,7 +68,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
     double max;
     double maxDmg;
     unsigned int index;
-    Skill* cd;
+    Skill* cd=nullptr;
     std::vector<Damage*> v;
     std::vector<Skill*>::iterator it;
     std::vector<Damage*>::iterator itd;
@@ -146,6 +146,7 @@ std::vector<Damage*> Hero::MaxDamageByTime(double time,unsigned int mana){//rest
             max=max-0.2;//tolgo il tempo del tick corrente dall'animazione dell'azione
         i=i+max;//aggiungo il tempo per fare l'azione intrapresa
     }
+    delete cd;
     return v;
 }
 
@@ -204,17 +205,13 @@ char Hero::Fight(Hero* h){
             check=false;
             if(hp1-dmg2<0.001)
                 return 't';
-                //std::cout<<"Fight is tied"<<std::endl;
-
             else
                 return 'w';
-                //std::cout<<"Memes "/*Hero::getName()*/<<" won"<<" in "<<i<<" seconds"<<std::endl;
         }
         else{
             if(hp1-dmg2<0.001){
                 check=false;
                 return 'l';
-                //std::cout<<"Mememino "/*Hero::getName()*/<<" won"<<" in "<<i<<" seconds"<<std::endl;
             }
         }
     }
