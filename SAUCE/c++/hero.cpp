@@ -19,7 +19,7 @@ Hero::Hero(const BaseAttack b, QString n, unsigned int st, unsigned int ag, unsi
         skills.push_back(new Skill(h.getSkill(i)));
 }*/
 
-/*Hero::~Hero(){
+Hero::~Hero(){
     std::vector<Skill*>::const_iterator it = skills.begin();
     Skill* aux;
     for(;it!= skills.end(); it++){
