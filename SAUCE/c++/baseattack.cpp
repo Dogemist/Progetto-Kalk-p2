@@ -87,8 +87,5 @@ Damage* BaseAttack::sum(Damage* d){
         double value = this->DamageByTime(sum->anim);
         sum->setValue(value + dp->getValue());
 }
-    Damage* ret = sum;
-
-    return ret;
-
+    return sum;
 }
